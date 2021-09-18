@@ -11,19 +11,23 @@ function generateAccessToken(user) {
 }
 
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-    const token = authHeader.replace('Bearer', '').trim();
-    if (token == null) {
-        return res.sendStatus(401)   
-    }
-
-    jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) {
-            return res.sendStatus(403) //token no longer valid 
+    try {
+        const authHeader = req.headers['authorization']
+        const token = authHeader.replace('Bearer', '').trim();
+        if (token == null) {
+            return res.sendStatus(401)   
         }
-        req.user = user
-        next()
-    })
+
+        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+            if (err) {
+                return res.sendStatus(403) //token no longer valid 
+            }
+            req.user = user
+            next()
+        })
+    } catch {
+        return res.sendStatus(403)
+    }
 }
 
 module.exports = { generateAccessToken, authenticateToken }
