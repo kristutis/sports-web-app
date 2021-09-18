@@ -1,6 +1,3 @@
-GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDM5LCJleHAiOjE2MzE5ODkwMzl9.2PVQGf8SAftElu9Br140j31XuGmH0oYskO08HtUZUGY
-
 ###
 GET http://localhost:3000/trainers/2
 
@@ -8,6 +5,9 @@ GET http://localhost:3000/trainers/2
 GET http://localhost:3000/trainers/
 
 #-----------------------------------------
+### get posts
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDc5LCJleHAiOjE2MzE5ODkwNzl9.YJOs7H6344NEY-phNi6LVGa1Kf1-QdA7Qvacdjc1Czw
 
 ### sigun  new user
 POST http://localhost:3000/users/signup
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 ### admin get all users
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg4MTIwLCJleHAiOjE2MzE5ODg3MjB9.xjEUL7nd6240XAnxz3A6OPt3UFAnElsH392Vfw8lKD4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDc5LCJleHAiOjE2MzE5ODkwNzl9.YJOs7H6344NEY-phNi6LVGa1Kf1-QdA7Qvacdjc1Czw
 
 {
     "email": "admin",
