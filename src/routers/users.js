@@ -7,7 +7,7 @@ const router = new express.Router();
 const users = [
     {
         id: 1,
-        name: 'NAME_1',
+        name: 'Kyle',
         surname: 'SURNAME_1',
         email: 'email@em.com',
         password: 'asdfd',
@@ -16,7 +16,7 @@ const users = [
     },
     {
         id: 2,
-        name: 'NAME_2',
+        name: 'Jim',
         surname: 'SURNAME_2',
         email: 'email@yandex.ru',
         password: 'asdfd',

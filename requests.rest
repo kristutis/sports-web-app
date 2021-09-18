@@ -1,5 +1,5 @@
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYzMTk4Mzc5NiwiZXhwIjoxNjMxOTg0Mzk2fQ.mRyD5oPu19w23R9I-SMeBErElQGtMfI1AShKghL62V0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDFRenk0bHhUL2gvTXREWDN1Q3RMbGVld1pzWjJaSWVnRS5lZVJ6M0NHaVdlSzRRZXhRUjFDIiwiaWF0IjoxNjMxOTg1ODIyLCJleHAiOjE2MzE5ODY0MjJ9.UivTyGubYW-SmA2XbWRngh9Kr-HSJEeetiY8-7p8oHU
 
 ###
 POST http://localhost:3000/users/login
@@ -20,7 +20,7 @@ POST http://localhost:3000/users/signup
 Content-Type: application/json
 
 {
-    "name": "new-user",
+    "name": "Jim",
     "surname": "new-surn",
     "email": "new-mail.ru",
     "password": "asdasd"
