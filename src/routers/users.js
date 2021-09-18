@@ -1,8 +1,10 @@
 const express = require('express');
-const { generateAccessToken} = require('../middleware/authentication');
+const { authenticateToken, generateAccessToken } = require('../middleware/authentication');
 const bcrypt = require('bcrypt')
 
 const router = new express.Router();
+
+const ADMIN_ROLE = 255
 
 const users = [
     {
@@ -27,8 +29,8 @@ const users = [
         id: 255,
         name: 'ADMIN',
         surname: 'ADMIN_S',
-        email: 'email@admin.ru',
-        password: 'asdfd',
+        email: 'admin',
+        password: '$2b$10$6HOTs2ZZMHP4TqEeBxIS9Oa2re10bEI7IVm1jOws6m6g/1RBYZs7u',
         money: 999.99,
         role: 255
     }
@@ -44,6 +46,7 @@ router.post('/users/signup', async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(userDetails.password, 10)
+        console.log(hashedPassword)
         const newUser = {
             name: userDetails.name,
             surname: userDetails.surname,
@@ -73,17 +76,17 @@ router.post('/users/login', async (req, res) => {
         return res.status(500).json({error: 'Cannot dehash password'})
     }
 
-    console.log(user)
-
     const accessToken = generateAccessToken(user)
 
     res.json({accessToken: accessToken})
 })
 
-router.get('/users', (req, res) => {
-    //tik adminui
-
-    res.json(users)
+router.get('/users', authenticateToken, (req, res) => {
+    const userRole = req.user.role
+    if (ADMIN_ROLE === userRole) {
+        res.json(users)
+    }
+    res.status(400).json({error: 'Forbidden'})
 })
 
 module.exports = router

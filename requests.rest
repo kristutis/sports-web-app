@@ -1,5 +1,5 @@
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDFRenk0bHhUL2gvTXREWDN1Q3RMbGVld1pzWjJaSWVnRS5lZVJ6M0NHaVdlSzRRZXhRUjFDIiwiaWF0IjoxNjMxOTg1ODIyLCJleHAiOjE2MzE5ODY0MjJ9.UivTyGubYW-SmA2XbWRngh9Kr-HSJEeetiY8-7p8oHU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJHpOamJrQS9PdUpLV0FoL2ZqQUJSZWVBUEtJRzhSeG1YZnpOb0plRUl3eXlvelg5QlltYlh5IiwiaWF0IjoxNjMxOTg2MDAzLCJleHAiOjE2MzE5ODY2MDN9.0nhjeInVzC8nLNbZ0TNud886IoaKIYN-E5kVdJPuyzg
 
 ###
 POST http://localhost:3000/users/login
@@ -33,4 +33,23 @@ Content-Type: application/json
 {
     "email": "new-mail.ru",
     "password": "asdasd"
+}
+
+#-----------------------------------------
+
+###
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg2NzU1LCJleHAiOjE2MzE5ODczNTV9.2NqFaWoLpfS5Y9cx2PKB_9o3UdVAgfLt22a4ZAW63bc
+{
+    "email": "admin",
+    "password": "admin"
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "admin",
+    "password": "admin"
 }
