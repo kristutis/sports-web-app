@@ -86,7 +86,7 @@ router.get('/users', authenticateToken, (req, res) => {
     if (ADMIN_ROLE === userRole) {
         res.json(users)
     }
-    res.status(400).json({error: 'Forbidden'})
+    res.sendStatus(403)
 })
 
 module.exports = router

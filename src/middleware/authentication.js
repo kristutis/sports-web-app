@@ -19,7 +19,7 @@ function authenticateToken(req, res, next) {
 
     jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
-            return res.sendStatus(403) //token no longer valid
+            return res.sendStatus(403) //token no longer valid 
         }
         req.user = user
         next()

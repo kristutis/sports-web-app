@@ -1,18 +1,15 @@
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJHpOamJrQS9PdUpLV0FoL2ZqQUJSZWVBUEtJRzhSeG1YZnpOb0plRUl3eXlvelg5QlltYlh5IiwiaWF0IjoxNjMxOTg2MDAzLCJleHAiOjE2MzE5ODY2MDN9.0nhjeInVzC8nLNbZ0TNud886IoaKIYN-E5kVdJPuyzg
-
-###
-POST http://localhost:3000/users/login
-Content-Type: application/json
-
-{
-    "username": "Kyle"
-}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDM5LCJleHAiOjE2MzE5ODkwMzl9.2PVQGf8SAftElu9Br140j31XuGmH0oYskO08HtUZUGY
 
 ###
 GET http://localhost:3000/trainers/2
 
 ###
+GET http://localhost:3000/trainers/
+
+#-----------------------------------------
+
+### sigun  new user
 POST http://localhost:3000/users/signup
 Content-Type: application/json
 
@@ -23,7 +20,7 @@ Content-Type: application/json
     "password": "asdasd"
 }
 
-###
+### login new user
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
@@ -34,16 +31,7 @@ Content-Type: application/json
 
 #-----------------------------------------
 
-###
-GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg2NzU1LCJleHAiOjE2MzE5ODczNTV9.2NqFaWoLpfS5Y9cx2PKB_9o3UdVAgfLt22a4ZAW63bc
-
-{
-    "email": "admin",
-    "password": "admin"
-}
-
-###
+### login admin
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
@@ -51,3 +39,13 @@ Content-Type: application/json
     "email": "admin",
     "password": "admin"
 }
+
+### admin get all users
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg4MTIwLCJleHAiOjE2MzE5ODg3MjB9.xjEUL7nd6240XAnxz3A6OPt3UFAnElsH392Vfw8lKD4
+
+{
+    "email": "admin",
+    "password": "admin"
+}
+
