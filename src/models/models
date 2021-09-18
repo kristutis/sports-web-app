@@ -31,3 +31,13 @@ Trainer_Comments
     pk(trainer_id, comment)
     trainer_id
     comment
+
+Gym_times
+    id
+    DateTime time
+    int count
+
+Gym_reservations
+    pk(user_id, gym_time_id)
+    user_id
+    gymTime_id
