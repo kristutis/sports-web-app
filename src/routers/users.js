@@ -1,9 +1,9 @@
 const express = require('express');
-const jwt = require('jsonwebtoken')
+const { generateAccessToken} = require('../middleware/authentication');
 
 const router = new express.Router();
 
-const TOKEN_EXPIRE = process.env.TOKEN_EXPIRE || '30m'
+
 
 router.post('/login', (req, res) => {
     //authentication
@@ -19,9 +19,5 @@ router.post('/login', (req, res) => {
 
     res.json({accessToken: accessToken})
 })
-
-function generateAccessToken(user) {
-    return jwt.sign(user, ACCESS_TOKEN_SECRET, { expiresIn: TOKEN_EXPIRE })
-}
 
 module.exports = router
