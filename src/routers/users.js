@@ -4,9 +4,7 @@ const bcrypt = require('bcrypt')
 
 const router = new express.Router();
 
-const ADMIN_ROLE = 255
-
-const users = [
+let users = [
     {
         id: 1,
         name: 'Kyle',
@@ -47,6 +45,7 @@ router.post('/users/signup', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(userDetails.password, 10)
         const newUser = {
+            id: users.length, //change
             name: userDetails.name,
             surname: userDetails.surname,
             email: userDetails.email,
@@ -82,6 +81,21 @@ router.post('/users/login', async (req, res) => {
 
 router.get('/users', authenticateAdmin, (req, res) => {
     res.json(users)
+})
+
+router.delete('/users/:id', authenticateAdmin, (req, res) => {
+    userId = req.params.id
+    const userExist = users.find(user => user.id == userId)
+    if (!userExist) {
+        return res.status(400).json({error: "User does not exist"})
+    }
+
+    const oldCount = users.length
+    users = users.filter(user => user.id != userId)
+    if(users.length < oldCount) {
+        return res.status(200).send()
+    }
+    res.status(500).send()
 })
 
 module.exports = router
