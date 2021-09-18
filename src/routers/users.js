@@ -1,5 +1,5 @@
 const express = require('express');
-const { authenticateToken, generateAccessToken } = require('../middleware/authentication');
+const { authenticateAdmin, authenticateToken, generateAccessToken } = require('../middleware/authentication');
 const bcrypt = require('bcrypt')
 
 const router = new express.Router();
@@ -80,12 +80,8 @@ router.post('/users/login', async (req, res) => {
     res.json({accessToken: accessToken})
 })
 
-router.get('/users', authenticateToken, (req, res) => {
-    const userRole = req.user.role
-    if (ADMIN_ROLE === userRole) {
-        res.json(users)
-    }
-    res.status(403).send()
+router.get('/users', authenticateAdmin, (req, res) => {
+    res.json(users)
 })
 
 module.exports = router

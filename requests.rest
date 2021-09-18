@@ -42,10 +42,10 @@ Content-Type: application/json
 
 ### admin get all users
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg4ODgzLCJleHAiOjE2MzE5ODk0ODN9.lpikgYvRr58v-GN7h8vvM7ezPZEi1ltKS4WjjYQ7slk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTk3MzQzLCJleHAiOjE2MzE5OTc5NDN9.Hh3h8aSB_rzVFpa2NwnzBI1KgPrn4hjZyrihNQfqdVM
 
 {
     "email": "admin",
-    "password": "admin"
+    "password": "admian"
 }
 
