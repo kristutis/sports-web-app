@@ -1,0 +1,29 @@
+{
+  "name": "sports-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristutis/sports-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristutis/sports-web-app/issues"
+  },
+  "homepage": "https://github.com/kristutis/sports-web-app#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
