@@ -86,7 +86,7 @@ router.get('/users', authenticateToken, (req, res) => {
     if (ADMIN_ROLE === userRole) {
         res.json(users)
     }
-    res.sendStatus(403)
+    res.status(403).send()
 })
 
 module.exports = router

@@ -7,7 +7,7 @@ GET http://localhost:3000/trainers/
 #-----------------------------------------
 ### get posts
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDc5LCJleHAiOjE2MzE5ODkwNzl9.YJOs7H6344NEY-phNi6LVGa1Kf1-QdA7Qvacdjc1Czw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJGhIZ0pZTVo2UldpcmdGNDVtbkhtbE9NNVM4blRnRnBVUE1ROC54cUtxRHQ4ZHlNMUt2RVBhIiwiaWF0IjoxNjMxOTg4NzUyLCJleHAiOjE2MzE5ODkzNTJ9.3kheePKI6S0jpdZjeorr02Q03lBbH6vOqKRPYNapcCQ
 
 ### sigun  new user
 POST http://localhost:3000/users/signup
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 ### admin get all users
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwic3VybmFtZSI6Im5ldy1zdXJuIiwiZW1haWwiOiJuZXctbWFpbC5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJDV6QUg5eTZQaGE0bTIxczFEUUZFYU9nQlg0QXM5RU50MTdBSWhEUVFpR045aU0vQVE4Z0FlIiwiaWF0IjoxNjMxOTg4NDc5LCJleHAiOjE2MzE5ODkwNzl9.YJOs7H6344NEY-phNi6LVGa1Kf1-QdA7Qvacdjc1Czw
+Authorization: Bearer eyJhbGciOiJIasdUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg4NzIzLCJleHAiOjE2MzE5ODkzMjN9.6aIMtsRNtrOo0tthbxTgmzRjz6Kvm0HPVURWSXH-KSs
 
 {
     "email": "admin",
