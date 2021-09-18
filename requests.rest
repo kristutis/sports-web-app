@@ -13,9 +13,6 @@ Content-Type: application/json
 GET http://localhost:3000/trainers/2
 
 ###
-GET http://localhost:3000/users
-
-###
 POST http://localhost:3000/users/signup
 Content-Type: application/json
 
@@ -40,6 +37,7 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjU1LCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMxOTg2NzU1LCJleHAiOjE2MzE5ODczNTV9.2NqFaWoLpfS5Y9cx2PKB_9o3UdVAgfLt22a4ZAW63bc
+
 {
     "email": "admin",
     "password": "admin"
