@@ -13,5 +13,5 @@ app.use(usersRouter)
 app.use(postsRouter)
 
 app.listen(PORT, () => {
-    console.log('Server is up! Listening PORT: ' + PORT);
+    console.log('Server is running! Listening on PORT: ' + PORT);
 });
