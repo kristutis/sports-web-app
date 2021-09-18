@@ -24,7 +24,7 @@ const users = [
         role: 1
     },
     {
-        id:100,
+        id: 255,
         name: 'ADMIN',
         surname: 'ADMIN_S',
         email: 'email@admin.ru',
