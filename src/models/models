@@ -1,0 +1,33 @@
+User
+    id
+    name
+    surname
+    email
+    password
+    money
+    role 0-user 255-admin
+
+Trainer
+    id:
+    name
+    surname
+    price
+    description
+    moto
+
+Product
+    id
+    name
+    price
+    description
+    quantity    
+
+Trainer_rate
+    pk(trainer_id, rate)
+    trainer_id
+    rate
+
+Trainer_Comments
+    pk(trainer_id, comment)
+    trainer_id
+    comment
