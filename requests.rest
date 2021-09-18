@@ -1,5 +1,5 @@
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYzMTk3ODgxNCwiZXhwIjoxNjMxOTc5NDE0fQ.YT5pPcZXgpVTUsN7tFkX8YgLYP-LfvrETqmwBG5jfbw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IadskpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYzMTk4MDI5MywiZXhwIjoxNjMxOTgwODkzfQ.YpoRM-syj0-n3xc6R289Ufc9hljctWgWZZn9bn49pcU
 
 ###
 POST http://localhost:3000/login
@@ -10,4 +10,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/trainers
+GET http://localhost:3000/trainers/2
