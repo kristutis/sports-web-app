@@ -10,7 +10,6 @@ TOKEN_EXPIRE=
 Or create .env file in the root directory with those variables
 ### To start the application run the following commads:
 ```
-cd vinted-front
 npm install
-npm start
+npm run nodemon     # or 'npm start' on production
 ```
