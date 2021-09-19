@@ -14,13 +14,13 @@ const reservations = [
     }
 ]
 
-router.get('/reservations', authenticateToken, (req, res) => {
+router.get('/api/reservations', authenticateToken, (req, res) => {
     // console.log(req.user.name)
 
     // res.json(posts.filter(post => post.username === req.user.name))
 })
 
-router.delete('/reservations', authenticateToken, (req, res) => {
+router.delete('/api/reservations', authenticateToken, (req, res) => {
     // // req.user //get user
     // console.log(req.user.name)
     // res.json(posts.filter(post => post.username === req.user.name)

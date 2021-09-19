@@ -21,11 +21,11 @@ const trainers = [
     },
 ]
 
-router.get('/trainers', (req, res) => {
+router.get('/api/trainers', (req, res) => {
     res.json(trainers)
 })
 
-router.get('/trainers/:id', (req, res) => {
+router.get('/api/trainers/:id', (req, res) => {
     let trainerId = req.params.id
     let trainer = trainers.filter(t => t.id == trainerId)
     res.json(trainer)

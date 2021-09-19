@@ -41,7 +41,7 @@ let users = [
     }
 ]
 
-router.post('/users/signup', async (req, res) => {
+router.post('/api/users/signup', async (req, res) => {
     const userDetails = {
         name: req.body.name,
         surname: req.body.surname,
@@ -65,7 +65,7 @@ router.post('/users/signup', async (req, res) => {
     }
 })
 
-router.post('/users/login', async (req, res) => {
+router.post('/api/users/login', async (req, res) => {
     const email = req.body.email 
     const password = req.body.password
     const user = users.find(user => user.email === email)
@@ -97,13 +97,13 @@ router.post('/users/login', async (req, res) => {
     })
 })
 
-router.delete('/users/logout', (req, res) => {
+router.delete('/api/users/logout', (req, res) => {
     const refreshToken = req.body.refreshToken
     refreshTokens = refreshTokens.filter(token => token.refreshToken !== refreshToken)
     res.sendStatus(204)
 })
 
-router.post('/users/token', authenticateRefreshToken, (req, res) => {
+router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
     const user = req.user
     const refreshToken = req.body.refreshToken
 
@@ -117,11 +117,11 @@ router.post('/users/token', authenticateRefreshToken, (req, res) => {
     })
 })
 
-router.get('/users', authenticateAdmin, (req, res) => {
+router.get('/api/users', authenticateAdmin, (req, res) => {
     res.json(users)
 })
 
-router.delete('/users/:id', authenticateAdmin, (req, res) => {
+router.delete('/api/users/:id', authenticateAdmin, (req, res) => {
     userId = req.params.id
     const userExist = users.find(user => user.id == userId)
     if (!userExist) {

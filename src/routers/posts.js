@@ -14,7 +14,7 @@ const posts = [
     }
 ]
 
-router.get('/posts', authenticateToken, (req, res) => {
+router.get('/api/posts', authenticateToken, (req, res) => {
     // req.user //get user
     console.log(req.user.name)
     res.json(posts.filter(post => post.username === req.user.name))
