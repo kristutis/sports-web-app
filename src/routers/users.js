@@ -1,5 +1,5 @@
 const express = require('express');
-const { authenticateAdmin, generateAccessToken } = require('../middleware/authentication');
+const { authenticateRefreshToken, authenticateAdmin, generateAccessToken, generateRefreshToken } = require('../middleware/authentication');
 const bcrypt = require('bcrypt')
 
 const router = new express.Router();
@@ -12,7 +12,7 @@ let users = [
         email: 'email@em.com',
         password: 'asdfd',
         money: 100.5,
-        role: 1
+        role: 1,
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ let users = [
         email: 'email@yandex.ru',
         password: 'asdfd',
         money: 100.55,
-        role: 1
+        role: 1,
     },
     {
         id: 255,
@@ -30,7 +30,7 @@ let users = [
         email: 'admin',
         password: '$2b$10$6HOTs2ZZMHP4TqEeBxIS9Oa2re10bEI7IVm1jOws6m6g/1RBYZs7u',
         money: 999.99,
-        role: 255
+        role: 255,
     }
 ]
 
@@ -54,7 +54,7 @@ router.post('/users/signup', async (req, res) => {
         users.push(newUser)
         res.status(201).send('user ' + userDetails.name + ' created')
     } catch {
-        res.status(500).json({error: 'error when creating a user'}).send()
+        res.status(500).json({error: 'error when creating a user'})
     }
 })
 
@@ -74,9 +74,21 @@ router.post('/users/login', async (req, res) => {
         return res.status(500).json({error: 'Cannot dehash password'})
     }
 
+    const refreshToken = generateRefreshToken(user)
     const accessToken = generateAccessToken(user)
+    
+    res.json({
+        accessToken: accessToken,
+        refreshToken: refreshToken
+    })
+})
 
-    res.json({accessToken: accessToken})
+router.post('/users/token', authenticateRefreshToken, (req, res) => {
+    const user = req.user
+    const accessToken = generateAccessToken(user)
+    res.json({
+        accessToken: accessToken
+    })
 })
 
 router.get('/users', authenticateAdmin, (req, res) => {
