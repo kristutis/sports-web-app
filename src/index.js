@@ -16,6 +16,10 @@ app.use(postsRouter)
 app.use(trainersRouter)
 app.use(reservationsRouter)
 
+app.get('/', (req, res) => {
+    res.send('Welcome to sports-web API!')
+})
+
 app.listen(PORT, () => {
     console.log('Server is running! Listening on PORT: ' + PORT);
 });
