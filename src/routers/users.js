@@ -97,6 +97,12 @@ router.post('/users/login', async (req, res) => {
     })
 })
 
+router.delete('/users/logout', (req, res) => {
+    const refreshToken = req.body.refreshToken
+    refreshTokens = refreshTokens.filter(token => token.refreshToken !== refreshToken)
+    res.sendStatus(204)
+})
+
 router.post('/users/token', authenticateRefreshToken, (req, res) => {
     const user = req.user
     const refreshToken = req.body.refreshToken
