@@ -4,6 +4,13 @@ const bcrypt = require('bcrypt')
 
 const router = new express.Router();
 
+let refreshTokens = [
+    {
+        userId: '',
+        refreshToken: '',
+    }
+]
+
 let users = [
     {
         id: 1,
@@ -24,7 +31,7 @@ let users = [
         role: 1,
     },
     {
-        id: 255,
+        id: 200,
         name: 'ADMIN',
         surname: 'ADMIN_S',
         email: 'admin',
@@ -74,8 +81,15 @@ router.post('/users/login', async (req, res) => {
         return res.status(500).json({error: 'Cannot dehash password'})
     }
 
-    const refreshToken = generateRefreshToken(user)
     const accessToken = generateAccessToken(user)
+    const refreshToken = generateRefreshToken(user)
+
+
+    refreshTokens = refreshTokens.filter(token => token.userId !== user.id)
+    refreshTokens.push({
+        userId: user.id,
+        refreshToken: refreshToken
+    })
     
     res.json({
         accessToken: accessToken,
@@ -85,6 +99,12 @@ router.post('/users/login', async (req, res) => {
 
 router.post('/users/token', authenticateRefreshToken, (req, res) => {
     const user = req.user
+    const refreshToken = req.body.refreshToken
+
+    if (!refreshTokens.filter(token => token.userId === user.id && token.refreshToken === refreshToken).length) {
+        return res.status(403).send()
+    }
+
     const accessToken = generateAccessToken(user)
     res.json({
         accessToken: accessToken

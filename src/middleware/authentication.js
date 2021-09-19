@@ -23,7 +23,7 @@ function authenticateRefreshToken(req, res, next) {
 
         jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, user) => {
             if (err) {
-                return res.status(403) //token no longer valid
+                return res.status(403).json({error: 'Refresh token no longer valid'})
             }
             req.user = {
                 id: user.id,
@@ -37,7 +37,7 @@ function authenticateRefreshToken(req, res, next) {
             next()
         })
     } catch(e) {
-        return res.status(401).json({error: e}) //no token recieved
+        return res.status(401).json({error: 'No token recieved\n' + e})
     }
 }
 
