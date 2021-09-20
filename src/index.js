@@ -33,3 +33,11 @@ app.get('/test', async (req, res) => {
         res.json({error: e})
     }
 })
+app.get('/test/:id', async (req, res) => {
+    try {
+        results = await db.getUser(req.params.id)
+        res.json(results)
+    } catch (e) {
+        res.json({error: e})
+    }
+})
