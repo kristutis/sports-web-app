@@ -4,12 +4,7 @@ const bcrypt = require('bcrypt')
 
 const router = new express.Router();
 
-let refreshTokens = [
-    {
-        userId: '',
-        refreshToken: '',
-    }
-]
+let refreshTokens = []
 
 let users = [
     {
@@ -83,13 +78,7 @@ router.post('/api/users/login', async (req, res) => {
 
     const accessToken = generateAccessToken(user)
     const refreshToken = generateRefreshToken(user)
-
-
-    refreshTokens = refreshTokens.filter(token => token.userId !== user.id)
-    refreshTokens.push({
-        userId: user.id,
-        refreshToken: refreshToken
-    })
+    refreshTokens.push(refreshToken)
     
     res.json({
         accessToken: accessToken,
@@ -99,7 +88,7 @@ router.post('/api/users/login', async (req, res) => {
 
 router.delete('/api/users/logout', (req, res) => {
     const refreshToken = req.body.refreshToken
-    refreshTokens = refreshTokens.filter(token => token.refreshToken !== refreshToken)
+    refreshTokens = refreshTokens.filter(token => token !== refreshToken)
     res.sendStatus(204)
 })
 
@@ -107,7 +96,7 @@ router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
     const user = req.user
     const refreshToken = req.body.refreshToken
 
-    if (!refreshTokens.filter(token => token.userId === user.id && token.refreshToken === refreshToken).length) {
+    if (!refreshTokens.includes(refreshToken)) {
         return res.status(403).send()
     }
 
