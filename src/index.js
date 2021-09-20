@@ -23,3 +23,13 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('Server is running! Listening on PORT: ' + PORT);
 });
+
+const db = require('./database/database')
+app.get('/test', async (req, res) => {
+    try {
+        results = await db.all()
+        res.json(results)
+    } catch (e) {
+        res.json({error: e})
+    }
+})
