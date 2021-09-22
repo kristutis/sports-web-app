@@ -41,7 +41,7 @@ function authenticateRefreshToken(req, res, next) {
     }
 }
 
-function authenticateToken(req, res, next) {
+function authenticateUser(req, res, next) {
     try {
         const authHeader = req.headers['authorization']
         const token = authHeader.replace('Bearer', '').trim();
@@ -62,16 +62,26 @@ function authenticateToken(req, res, next) {
 }
 
 function authenticateAdmin(req, res, next) {
-    authenticateToken(req, res, next)
     try {
-        const userRole = req.user.role
-        if (ADMIN_ROLE === userRole) {
-            next()
+        const authHeader = req.headers['authorization']
+        const token = authHeader.replace('Bearer', '').trim();
+        if (token == null) {
+            return res.sendStatus(401)   
         }
+
+        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+            if (err) {
+                return res.sendStatus(403) //token no longer valid 
+            }
+            const userRole = user.role
+            if (ADMIN_ROLE === userRole) {
+                req.user = user
+                next()
+            }
+        })
     } catch {
-        return res.status(500).send()
+        return res.sendStatus(403)
     }
-    return res.status(403).send()
 }
 
-module.exports = { generateAccessToken, generateRefreshToken, authenticateToken, authenticateAdmin, authenticateRefreshToken }
+module.exports = { generateAccessToken, generateRefreshToken, authenticateUser, authenticateAdmin, authenticateRefreshToken }

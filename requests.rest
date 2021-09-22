@@ -7,7 +7,7 @@ GET http://localhost:3000/api/trainers/
 #-----------------------------------------
 ### get posts
 GET http://localhost:3000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkppbSIsInN1cm5hbWUiOiJuZXctc3VybiIsImVtYWlsIjoibmV3LW1haWwucnUiLCJwYXNzd29yZCI6IiQyYiQxMCRtOEhDSWtZdmgwR0VBSy9kVTdvcmFPdldpUnkzR0lDaGFtUEV1azNlRU5JeVFMS1Y2QmdodSIsImlhdCI6MTYzMjA2Mjg4MSwiZXhwIjoxNjMyMDYzNzgxfQ._oroyqV3AvIY_JJFHOQrr4XUIPdXDKd3CL8oOJnJJaM
+Authorization: Bearer eyJahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkppbSIsInN1cm5hbWUiOiJuZXctc3VybiIsImVtYWlsIjoibmV3LW1haWwucnUiLCJwYXNzd29yZCI6IiQyYiQxMCRkeXNsd1BxN29pOUgudUREMktHeHNPZHRqcmtnRzlTM1pybVRoc0kuQkpIWS9sdjE4Y0RuZSIsImlhdCI6MTYzMjM0MDEzNywiZXhwIjoxNjMyMzQxMDM3fQ.QdesrOg4A17c_6Gp_uOpo59yOATYAm4747sIlGjDjWs
 
 ### sigun  new user
 POST http://localhost:3000/api/users/signup
@@ -41,12 +41,12 @@ Content-Type: application/json
 }
 
 ### admin get all users
-GET http://localhost:3000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkppbSIsInN1cm5hbWUiOiJuZXctc3VybiIsImVtYWlsIjoibmV3LW1haWwucnUiLCJwYXNzd29yZCI6IiQyYiQxMCRzQjRuclBlWDlacHBuSGk0MkdqOWVlOGNjWkR3MFAvMWJnaEtlNGtBbDIyOHFadlJtZHlOaSIsImlhdCI6MTYzMjE2NzQ3MCwiZXhwIjoxNjMyMTY4MzcwfQ.pKgujZWL903xyZeEGCFlqLPqEiCI-Et7fhgxl712N5
+GET http://localhost:3000/api/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQwMDEzLCJleHAiOjE2MzIzNDA5MTN9.E2nUVPwkHsSfUnXGQ7AidsSAD_v_wZEYAIX1QzO_Go4
 
 ### admin delete user
 DELETE http://localhost:3000/api/users/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMTY3Mjk3LCJleHAiOjE2MzIxNjgxOTd9.RhxGDPAyMljQOymeKq7LPdYDn_hqOiSsTcj_U4I9tVY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQwMTcwLCJleHAiOjE2MzIzNDEwNzB9.wqEQYBI2cUSuxs_M1NBZWqGlF3DAiyjlluf_ScGrxNU
 
 #-----------------------------------------
 
@@ -74,3 +74,11 @@ Content-Type: application/json
 {
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMTY3MTM3LCJleHAiOjE2MzIxNzA3Mzd9.qDt9W61knDNMTpTWY56tAjlAYKdpRS29YoEvV0pQfvk"
 }
+
+#-----------------------------------------
+###
+GET http://localhost:3000/test/1
+
+#-----------------------------------------
+###
+GET http://localhost:3000/api/products

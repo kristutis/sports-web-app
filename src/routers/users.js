@@ -1,6 +1,7 @@
 const express = require('express');
 const { authenticateRefreshToken, authenticateAdmin, generateAccessToken, generateRefreshToken } = require('../middleware/authentication');
 const bcrypt = require('bcrypt')
+const dbOperations = require('../database/operations');
 
 const router = new express.Router();
 
@@ -106,8 +107,14 @@ router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
     })
 })
 
-router.get('/api/users', authenticateAdmin, (req, res) => {
-    res.json(users)
+router.get('/api/users', authenticateAdmin, async (req, res) => {
+    try {
+        results = await dbOperations.getUsers()
+        res.json(results).send()
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
 router.delete('/api/users/:id', authenticateAdmin, (req, res) => {
