@@ -41,14 +41,21 @@ router.post('/api/products', authenticateAdmin, async (req, res) => {
     }
 })
 
-router.put('/api/products/:id', authenticateAdmin, async (req, res) => {
-    // try {
-    //     results = await dbOperations.getProducts()
-    //     res.json(results).send()
-    // } catch (e) {
-    //     console.log(e)
-    //     res.sendStatus(500)
-    // }
+router.put('/api/products', authenticateAdmin, async (req, res) => {
+    const product = {
+        id: req.body.id,
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+    }
+    try {
+        await dbOperations.updateProduct(product)
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
 router.delete('/api/products/:id', authenticateAdmin, async (req, res) => {

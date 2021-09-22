@@ -67,6 +67,21 @@ function deleteProduct(id) {
     })    
 }
 
-const dbOperations = { getUsers, getUserByUserId, getProducts, getProductById, insertProduct, deleteProduct }
+function updateProduct(product) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE products SET name=?, description=?, price=?, quantity=? WHERE id = ?',
+        [product.name, product.description, product.price, product.quantity, product.id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+const dbOperations = { 
+    getUsers, getUserByUserId, 
+    getProducts, getProductById, insertProduct, deleteProduct, updateProduct
+ }
 
 module.exports = dbOperations
