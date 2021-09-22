@@ -24,15 +24,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('Server is running! Listening on PORT: ' + PORT);
 });
-
-// app.get('/test/:id', async (req, res) => {
-//     try {
-//         const id = req.params.id
-//         console.log(id)
-//         results = await dbOperations.getUserByUserId(req.params.id)
-//         res.json(results)
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })

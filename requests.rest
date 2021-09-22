@@ -75,11 +75,21 @@ Content-Type: application/json
   "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMTY3MTM3LCJleHAiOjE2MzIxNzA3Mzd9.qDt9W61knDNMTpTWY56tAjlAYKdpRS29YoEvV0pQfvk"
 }
 
-#-----------------------------------------
-###
-GET http://localhost:3000/test/1
 
 #-----------------------------------------
+### login admin
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin",
+    "password": "admin"
+}
+
+
+###
+GET http://localhost:3000/api/products
+
 ###
 GET http://localhost:3000/api/products/1
 
