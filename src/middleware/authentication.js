@@ -62,6 +62,7 @@ function authenticateUser(req, res, next) {
 }
 
 function authenticateAdmin(req, res, next) {
+    console.log(req)
     try {
         const authHeader = req.headers['authorization']
         const token = authHeader.replace('Bearer', '').trim();

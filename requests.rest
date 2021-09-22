@@ -46,7 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lI
 
 ### admin delete user
 DELETE http://localhost:3000/api/users/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQwMTcwLCJleHAiOjE2MzIzNDEwNzB9.wqEQYBI2cUSuxs_M1NBZWqGlF3DAiyjlluf_ScGrxNU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQyNDA0LCJleHAiOjE2MzIzNDMzMDR9.kgCwBXyI0gcV24C9N0RduK5oiMwP7zAt4LxyP5ZhagM
 
 #-----------------------------------------
 
@@ -81,4 +81,20 @@ GET http://localhost:3000/test/1
 
 #-----------------------------------------
 ###
-GET http://localhost:3000/api/products
+GET http://localhost:3000/api/products/1
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQyNDA0LCJleHAiOjE2MzIzNDMzMDR9.kgCwBXyI0gcV24C9N0RduK5oiMwP7zAt4LxyP5ZhagM
+
+{
+  "name": "asB",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 5
+}
+
+###
+DELETE http://localhost:3000/api/products/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQzNTY5LCJleHAiOjE2MzIzNDQ0Njl9.ewXEptCmJWiUiLXpSwsRFuWDqHfsH2dbeCe9gf_NjXc
