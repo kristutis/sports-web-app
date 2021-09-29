@@ -1,16 +1,16 @@
 ###
-GET http://localhost:3000/api/trainers/2
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/2
 
 ###
-GET http://localhost:3000/api/trainers/
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/
 
 #-----------------------------------------
 ### get posts
-GET http://localhost:3000/api/posts
+GET http://cosmic-quarter-326513.appspot.com/api/posts
 Authorization: Bearer eyJahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkppbSIsInN1cm5hbWUiOiJuZXctc3VybiIsImVtYWlsIjoibmV3LW1haWwucnUiLCJwYXNzd29yZCI6IiQyYiQxMCRkeXNsd1BxN29pOUgudUREMktHeHNPZHRqcmtnRzlTM1pybVRoc0kuQkpIWS9sdjE4Y0RuZSIsImlhdCI6MTYzMjM0MDEzNywiZXhwIjoxNjMyMzQxMDM3fQ.QdesrOg4A17c_6Gp_uOpo59yOATYAm4747sIlGjDjWs
 
 ### sigun  new user
-POST http://localhost:3000/api/users/signup
+POST http://cosmic-quarter-326513.appspot.com/api/users/signup
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### login new user
-POST http://localhost:3000/api/users/login
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
 #-----------------------------------------
 
 ### login admin
-POST http://localhost:3000/api/users/login
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
 Content-Type: application/json
 
 {
@@ -41,17 +41,17 @@ Content-Type: application/json
 }
 
 ### admin get all users
-GET http://localhost:3000/api/users/
+GET http://cosmic-quarter-326513.appspot.com/api/users/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQwMDEzLCJleHAiOjE2MzIzNDA5MTN9.E2nUVPwkHsSfUnXGQ7AidsSAD_v_wZEYAIX1QzO_Go4
 
 ### admin delete user
-DELETE http://localhost:3000/api/users/1
+DELETE http://cosmic-quarter-326513.appspot.com/api/users/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQyNDA0LCJleHAiOjE2MzIzNDMzMDR9.kgCwBXyI0gcV24C9N0RduK5oiMwP7zAt4LxyP5ZhagM
 
 #-----------------------------------------
 
 ### login admin
-POST http://localhost:3000/api/users/login
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
 Content-Type: application/json
 
 {
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 
 ### 
-POST http://localhost:3000/api/users/token
+POST http://cosmic-quarter-326513.appspot.com/api/users/token
 Content-Type: application/json
 
 {
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 
 ### logout admin
-DELETE  http://localhost:3000/api/users/logout
+DELETE  http://cosmic-quarter-326513.appspot.com/api/users/logout
 Content-Type: application/json
 
 {
@@ -78,7 +78,7 @@ Content-Type: application/json
 
 #-----------------------------------------
 ### login admin
-POST http://localhost:3000/api/users/login
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
 Content-Type: application/json
 
 {
@@ -87,35 +87,35 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/products
+GET https://cosmic-quarter-326513.appspot.com/api/products
 
 ###
-GET http://localhost:3000/api/products/1
+GET http://cosmic-quarter-326513.appspot.com/api/products/1
 
 ###
-POST http://localhost:3000/api/products
+POST http://cosmic-quarter-326513.appspot.com/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyODU3MTYwLCJleHAiOjE2MzI4NTgwNjB9.sUQUu_nK7Sy5sGjQm3yHCIVVBw43e74SRJLLz6xd7ps
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyOTQwNjIxLCJleHAiOjE2MzI5NDE1MjF9.eW8yuzFyYtn95PHnmICzDA37AVeEsdvCcQmHhPAZqCo
 
 {
-  "name": "NAME",
+  "name": "pp",
   "description": "A can of beans",
   "price": 2.34,
   "quantity": 5
 }
 
 ###
-DELETE http://localhost:3000/api/products/9
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyODU3MTYwLCJleHAiOjE2MzI4NTgwNjB9.sUQUu_nK7Sy5sGjQm3yHCIVVBw43e74SRJLLz6xd7ps
+DELETE http://cosmic-quarter-326513.appspot.com/api/products/11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyOTQwODczLCJleHAiOjE2MzI5NDE3NzN9.O3ZRWE_HhLaxMTIAOsEDtoQJrFxvS-dSLIz1vkqPYYU
 
 ###
-POST http://localhost:3000/api/products
+PUT http://cosmic-quarter-326513.appspot.com/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsIsnR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQzOTkzLCJleHAiOjE2MzIzNDQ4OTN9.tR2UBCimjZGVHTmWPmtLSwonwavtKAoRkT6s1hCkXAw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyOTQwODczLCJleHAiOjE2MzI5NDE3NzN9.O3ZRWE_HhLaxMTIAOsEDtoQJrFxvS-dSLIz1vkqPYYU
 
 {
-  "id": "3",
-  "name": "NAME",
+  "id": "11",
+  "name": "ppp",
   "description": "A can of beans",
   "price": 2.34,
   "quantity": 5
