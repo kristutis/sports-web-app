@@ -1,0 +1,122 @@
+###
+GET http://localhost:3000/api/trainers/2
+
+###
+GET http://localhost:3000/api/trainers/
+
+#-----------------------------------------
+### get posts
+GET http://localhost:3000/api/posts
+Authorization: Bearer eyJahbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkppbSIsInN1cm5hbWUiOiJuZXctc3VybiIsImVtYWlsIjoibmV3LW1haWwucnUiLCJwYXNzd29yZCI6IiQyYiQxMCRkeXNsd1BxN29pOUgudUREMktHeHNPZHRqcmtnRzlTM1pybVRoc0kuQkpIWS9sdjE4Y0RuZSIsImlhdCI6MTYzMjM0MDEzNywiZXhwIjoxNjMyMzQxMDM3fQ.QdesrOg4A17c_6Gp_uOpo59yOATYAm4747sIlGjDjWs
+
+### sigun  new user
+POST http://localhost:3000/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Jim",
+    "surname": "new-surn",
+    "email": "new-mail.ru",
+    "password": "asdasd"
+}
+
+### login new user
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "new-mail.ru",
+    "password": "asdasd"
+}
+
+#-----------------------------------------
+
+### login admin
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin",
+    "password": "admin"
+}
+
+### admin get all users
+GET http://localhost:3000/api/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQwMDEzLCJleHAiOjE2MzIzNDA5MTN9.E2nUVPwkHsSfUnXGQ7AidsSAD_v_wZEYAIX1QzO_Go4
+
+### admin delete user
+DELETE http://localhost:3000/api/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQyNDA0LCJleHAiOjE2MzIzNDMzMDR9.kgCwBXyI0gcV24C9N0RduK5oiMwP7zAt4LxyP5ZhagM
+
+#-----------------------------------------
+
+### login admin
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin",
+    "password": "admin"
+}
+
+### 
+POST http://localhost:3000/api/users/token
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMTY3MTM3LCJleHAiOjE2MzIxNzA3Mzd9.qDt9W61knDNMTpTWY56tAjlAYKdpRS29YoEvV0pQfvk"
+}
+
+### logout admin
+DELETE  http://localhost:3000/api/users/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMTY3MTM3LCJleHAiOjE2MzIxNzA3Mzd9.qDt9W61knDNMTpTWY56tAjlAYKdpRS29YoEvV0pQfvk"
+}
+
+
+#-----------------------------------------
+### login admin
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin",
+    "password": "admin"
+}
+
+###
+GET http://localhost:3000/api/products
+
+###
+GET http://localhost:3000/api/products/1
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyODU3MTYwLCJleHAiOjE2MzI4NTgwNjB9.sUQUu_nK7Sy5sGjQm3yHCIVVBw43e74SRJLLz6xd7ps
+
+{
+  "name": "NAME",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 5
+}
+
+###
+DELETE http://localhost:3000/api/products/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyODU3MTYwLCJleHAiOjE2MzI4NTgwNjB9.sUQUu_nK7Sy5sGjQm3yHCIVVBw43e74SRJLLz6xd7ps
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsIsnR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQzOTkzLCJleHAiOjE2MzIzNDQ4OTN9.tR2UBCimjZGVHTmWPmtLSwonwavtKAoRkT6s1hCkXAw
+
+{
+  "id": "3",
+  "name": "NAME",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 5
+}
