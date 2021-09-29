@@ -1,0 +1,12 @@
+# [START app_yaml]
+runtime: nodejs14
+env_variables:
+  NODE_ENV: production
+  DB_INSTANCE_NAME: /cloudsql/CONNECTION_NAME
+  DB_PASSWORD: 
+  DB_USER: 
+  DB_NAME: 
+  ACCESS_TOKEN_SECRET: 
+  REFRESH_TOKEN_SECRET: 
+  ACCESS_TOKEN_EXPIRE: 60m
+  REFRESH_TOKEN_EXPIRE: 60m
