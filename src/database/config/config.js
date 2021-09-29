@@ -1,13 +1,20 @@
 const mysql = require('mysql')
 
-const db = mysql.createPool({
+var config = {
     connectionLimit: 10,
     password: 'sports-db-pass-1',
     user: 'sports-db',
     database: 'sports_db',
-    // host: '34.88.169.216',
-    socketPath: '/cloudsql/cosmic-quarter-326513:europe-north1:sports-db',
-    // port: '3306'
-})
+}
+
+if (process.env.DB_INSTANCE_NAME && process.env.NODE_ENV === 'production') {
+    config.socketPath = process.env.DB_INSTANCE_NAME
+} else if (process.env.DB_HOST) {
+    config.host = process.env.DB_HOST
+} else {
+    throw 'CANNOT CONNECT TO DB!';
+}
+
+const db = mysql.createPool(config)
 
 module.exports = db

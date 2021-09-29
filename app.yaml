@@ -1,8 +1,10 @@
 # [START app_yaml]
 runtime: nodejs14
-beta_settings:
-  cloud_sql_instances: cosmic-quarter-326513:europe-north1:sports-db
+# beta_settings:
+#   cloud_sql_instances: cosmic-quarter-326513:europe-north1:sports-db
 env_variables:
+  NODE_ENV: production
+  DB_INSTANCE_NAME: /cloudsql/cosmic-quarter-326513:europe-north1:sports-db
   CLOUD_SQL_USERNAME: sports-db
   CLOUD_SQL_PASSWORD: sports-db-pass-1
   CLOUD_SQL_DATABASE_NAME: sports_db
