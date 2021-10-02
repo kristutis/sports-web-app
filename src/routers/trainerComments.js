@@ -4,6 +4,18 @@ const { authenticateUser } = require('../middleware/authentication');
 
 const router = new express.Router();
 
+router.get('/api/trainer/:tid/comments', async (req, res) => {
+    const trainerId = req.params.tid
+
+    try {
+        const result = await dbOperations.getCommentsByTrainerId(trainerId)
+        res.status(200).json(result)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }    
+})
+
 // router.get('/api/products', async (req, res) => {
 //     try {
 //         results = await dbOperations.getProducts()
