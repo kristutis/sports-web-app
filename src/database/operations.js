@@ -6,7 +6,18 @@ function getUserByUserId(id) {
             if (err) {
                 return reject(err)
             }
-            return resolve(results)
+            return resolve(results[0])
+        })
+    })
+}
+
+function getUserByUserEmail(userEmail) {
+    return new Promise((resolve, reject) => {
+        db.query(`SELECT * FROM users WHERE email = ?`, [userEmail], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results[0])
         })
     })
 }
@@ -20,6 +31,33 @@ function getUsers() {
             return resolve(results)
         })
     })    
+}
+
+function insertUser(user) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO users (name, surname, email, password) VALUES (?, ?, ?, ?)',
+            [user.name, user.surname, user.email, user.password], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+function updateUser() {
+
+}
+
+function deleteUser(id) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM users WHERE id = ?', [id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
 }
 
 function getProducts() {
@@ -53,7 +91,7 @@ function insertProduct(product) {
             }
             return resolve(results)
         })
-    })    
+    })
 }
 
 function deleteProduct(id) {
@@ -64,7 +102,7 @@ function deleteProduct(id) {
             }
             return resolve(results)
         })
-    })    
+    })
 }
 
 function updateProduct(product) {
@@ -80,7 +118,7 @@ function updateProduct(product) {
 }
 
 const dbOperations = { 
-    getUsers, getUserByUserId, 
+    getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct
  }
 

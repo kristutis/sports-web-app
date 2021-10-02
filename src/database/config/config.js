@@ -2,7 +2,11 @@ const mysql = require('mysql')
 
 var config = {}
 
-if (process.env.DB_NAME && process.env.DB_USER && process.env.DB_PASSWORD) {    
+if (!process.env.DB_PASSWORD) {
+    console.warn('db password is empty!')
+}
+
+if (process.env.DB_NAME && process.env.DB_USER) {    
     config.connectionLimit = 10
     config.database = process.env.DB_NAME
     config.user = process.env.DB_USER

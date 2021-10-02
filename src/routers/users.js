@@ -7,36 +7,6 @@ const router = new express.Router();
 
 let refreshTokens = []
 
-let users = [
-    {
-        id: 1,
-        name: 'Kyle',
-        surname: 'SURNAME_1',
-        email: 'email@em.com',
-        password: 'asdfd',
-        money: 100.5,
-        role: 1,
-    },
-    {
-        id: 2,
-        name: 'Jim',
-        surname: 'SURNAME_2',
-        email: 'email@yandex.ru',
-        password: 'asdfd',
-        money: 100.55,
-        role: 1,
-    },
-    {
-        id: 200,
-        name: 'ADMIN',
-        surname: 'ADMIN_S',
-        email: 'admin',
-        password: '$2b$10$6HOTs2ZZMHP4TqEeBxIS9Oa2re10bEI7IVm1jOws6m6g/1RBYZs7u',
-        money: 999.99,
-        role: 255,
-    }
-]
-
 router.post('/api/users/signup', async (req, res) => {
     const userDetails = {
         name: req.body.name,
@@ -48,25 +18,31 @@ router.post('/api/users/signup', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(userDetails.password, 10)
         const newUser = {
-            id: users.length, //change
             name: userDetails.name,
             surname: userDetails.surname,
             email: userDetails.email,
             password: hashedPassword,
         }
-        users.push(newUser)
-        res.status(201).send('user ' + userDetails.name + ' created')
-    } catch {
-        res.status(500).json({error: 'error when creating a user'})
+        try {
+            await dbOperations.insertUser(newUser)
+        } catch (e) {
+            if (e.sqlMessage.includes('Duplicate entry')) {
+                return res.status(400).json({error: 'User already exists'})
+            }
+        }
+        res.status(201).json('user ' + userDetails.name + ' created')
+    } catch (e) {        
+        console.log(e)
+        res.sendStatus(500)
     }
 })
 
 router.post('/api/users/login', async (req, res) => {
     const email = req.body.email 
     const password = req.body.password
-    const user = users.find(user => user.email === email)
-    if (user == null) {
-        return res.status(400).json({error: 'Cannot find user'}).send()
+    const user = await dbOperations.getUserByUserEmail(email)
+    if (!user) {
+        return res.status(400).json({error: 'User does not exist'})
     }
     try {
         const passwordsMatch = await bcrypt.compare(password, user.password)
@@ -74,13 +50,26 @@ router.post('/api/users/login', async (req, res) => {
             return res.status(400).json({error: 'Incorrect password'})
         }
     } catch {
-        return res.status(500).json({error: 'Cannot dehash password'})
+        console.log('Cannot dehash password')
+        return res.sendStatus(500)
     }
 
-    const accessToken = generateAccessToken(user)
-    const refreshToken = generateRefreshToken(user)
+    const validUser = {
+        id: user.id,
+        name: user.name,
+        surname: user.surname,
+        email: user.email,
+        password: user.password,
+        reg_date: user.reg_date,
+        modify_date: user.modify_date,
+        money: user.money,
+        role: user.role
+    }
+
+    const accessToken = generateAccessToken(validUser)
+    const refreshToken = generateRefreshToken(validUser)
     refreshTokens.push(refreshToken)
-    
+
     res.json({
         accessToken: accessToken,
         refreshToken: refreshToken
@@ -90,7 +79,7 @@ router.post('/api/users/login', async (req, res) => {
 router.delete('/api/users/logout', (req, res) => {
     const refreshToken = req.body.refreshToken
     refreshTokens = refreshTokens.filter(token => token !== refreshToken)
-    res.sendStatus(204)
+    res.sendStatus(200)
 })
 
 router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
@@ -117,19 +106,35 @@ router.get('/api/users', authenticateAdmin, async (req, res) => {
     }
 })
 
-router.delete('/api/users/:id', authenticateAdmin, (req, res) => {
+router.get('/api/users/:id', authenticateAdmin, async (req, res) => {
     userId = req.params.id
-    const userExist = users.find(user => user.id == userId)
-    if (!userExist) {
-        return res.status(400).json({error: "User does not exist"})
+    try {
+        const user = await dbOperations.getUserByUserId(userId)
+        if (!user) {
+            return res.status(400).json({error: "User does not exist"})
+        }
+        res.status(200).json(user).send()
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
     }
+})
 
-    const oldCount = users.length
-    users = users.filter(user => user.id != userId)
-    if(users.length < oldCount) {
-        return res.status(200).send()
+router.delete('/api/users/:id', authenticateAdmin, async (req, res) => {
+    userId = req.params.id
+
+    try {
+        const user = await dbOperations.getUserByUserId(userId)
+        const userExist = !!user && user.id == userId
+        if (!userExist) {
+            return res.status(400).json({error: "User does not exist"})
+        }
+        await dbOperations.deleteUser(user.id)
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
     }
-    res.status(500).send()
 })
 
 module.exports = router
