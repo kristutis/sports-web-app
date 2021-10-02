@@ -84,4 +84,8 @@ function authenticateAdmin(req, res, next) {
     }
 }
 
-module.exports = { generateAccessToken, generateRefreshToken, authenticateUser, authenticateAdmin, authenticateRefreshToken }
+module.exports = {
+    ADMIN_ROLE,
+    generateAccessToken, generateRefreshToken,
+    authenticateUser, authenticateAdmin, authenticateRefreshToken
+}

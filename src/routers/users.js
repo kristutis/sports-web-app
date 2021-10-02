@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const dbOperations = require('../database/operations');
 
 const router = new express.Router();
+const TOKEN_TYPE = 'Bearer'
 
 let refreshTokens = []
 
@@ -71,6 +72,7 @@ router.post('/api/users/login', async (req, res) => {
     refreshTokens.push(refreshToken)
 
     res.json({
+        tokenType: TOKEN_TYPE,
         accessToken: accessToken,
         refreshToken: refreshToken
     })
@@ -82,7 +84,7 @@ router.delete('/api/users/logout', (req, res) => {
     res.sendStatus(200)
 })
 
-router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
+router.post('/api/users/refresh', authenticateRefreshToken, (req, res) => {
     const user = req.user
     const refreshToken = req.body.refreshToken
 
@@ -91,8 +93,15 @@ router.post('/api/users/token', authenticateRefreshToken, (req, res) => {
     }
 
     const accessToken = generateAccessToken(user)
+    const newRefreshToken = generateRefreshToken(user)
+
+    refreshTokens = refreshTokens.filter(token => token !== refreshToken)    
+    refreshTokens.push(newRefreshToken)
+
     res.json({
-        accessToken: accessToken
+        tokenType: TOKEN_TYPE,
+        accessToken: accessToken,
+        refreshToken: refreshToken
     })
 })
 

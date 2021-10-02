@@ -12,8 +12,8 @@ Content-Type: application/json
 {
     "name": "Jim",
     "surname": "jimmy",
-    "email": "ajim-eaam.ru",
-    "password": "ajimm"
+    "email": "aajim-eaam.ru",
+    "password": "aajimm"
 }
 
 ### login new user
@@ -50,11 +50,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6I
 
 #-----------------------------------------
 ### 
-POST http://localhost:3000/api/users/token
+POST http://localhost:3000/api/users/refresh
 Content-Type: application/json
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk5MzI4LCJleHAiOjE2MzMyMDI5Mjh9.08dg3fsV2nB99k8DwkzS1MzQsUjg_-vBg8qN-i4TxH0"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQyMTo1NzowNS4wMDBaIiwibW9uZXkiOjU3Ni42LCJyb2xlIjoxLCJpYXQiOjE2MzMyMTc4MTksImV4cCI6MTYzMzIyMTQxOX0.ZLJUHY_f2gII41GA0TRzAi93WFimu4DCXHYRWR9Qs2M"
 }
 
 ### logout
@@ -62,7 +62,7 @@ DELETE  http://localhost:3000/api/users/logout
 Content-Type: application/json
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk5MzI4LCJleHAiOjE2MzMyMDI5Mjh9.08dg3fsV2nB99k8DwkzS1MzQsUjg_-vBg8qN-i4TxH0"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQyMTo1NzowNS4wMDBaIiwibW9uZXkiOjU3Ni42LCJyb2xlIjoxLCJpYXQiOjE2MzMyMTc4MTksImV4cCI6MTYzMzIyMTQxOX0.ZLJUHY_f2gII41GA0TRzAi93WFimu4DCXHYRWR9Qs2M"
 }
 
 #-----------------------------------------
@@ -152,3 +152,6 @@ GET http://localhost:3000/api/trainer/1/comments
 
 ###
 GET http://localhost:3000/api/trainer/2/rating
+
+DELETE http://localhost:3000/api/trainer/1/comments/5
+Authorization: Bearer eyJpZCI6OTksIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImFqaW0tZWFhbS5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJGI5OWgwUzVwN2V2dnlydm9pa2xTSi5DZm1KblBFekZxNkU1N1lWNGdtTlJJWEo5NmdTUWFpIiwicmVnX2RhdGUiOiIyMDIxLTEwLTAyVDIyOjI5OjQ4LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMDJUMjI6Mjk6NDguMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzMyMTM3OTYsImV4cCI6MTYzMzIxNDY5Nn0
