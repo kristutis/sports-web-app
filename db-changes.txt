@@ -1,8 +1,0 @@
-ALTER TABLE users
-ADD UNIQUE (email);
-
-ALTER TABLE `users` CHANGE `password` `password` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
-
-admin hash $2b$10$dN.67YJ0oMVqYtQ4lRzOXuCFyrFGn57DFGwyanZo8DFCeHb8Tma9C
-
-create table orders ( order_id int AUTO_INCREMENT PRIMARY KEY, fk_user_id int not null, fk_product_id int not null, quantity float not null, total_price float not null );

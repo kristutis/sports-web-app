@@ -149,10 +149,33 @@ function insertOrder(order) {
     })    
 }
 
+function getTrainers() {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainers', (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })   
+}
+
+function getTrainerById(trainerId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainers WHERE id = ?', [trainerId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 const dbOperations = { 
     getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
-    getOrdersByUserId, insertOrder
+    getOrdersByUserId, insertOrder,
+    getTrainers, getTrainerById
  }
 
 module.exports = dbOperations

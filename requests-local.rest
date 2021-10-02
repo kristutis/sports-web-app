@@ -122,8 +122,8 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMjA0NTQwLCJleHAiOjE2MzMyMDU0NDB9.alLOGWE9aAjLgCaxlwa--fxIxbTYQxJrkSwY46sCy84
 
 {
-    "productId": "100",
-    "quantity": "5"
+    "productId": "1",
+    "quantity": "1"
 }
 
 ###

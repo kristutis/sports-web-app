@@ -1,34 +1,27 @@
 const express = require('express');
+const dbOperations = require('../database/operations');
 
 const router = new express.Router();
 
-const trainers = [
-    {
-        id: 1,
-        name: 'Treneris 1',
-        surname: 'Petrauskas',
-        price: 55.55,
-        description: 'Labai geras treneris',
-        moto: 'Sportas - sveikata!',
-    },
-    {
-        id: 2,
-        name: 'Treneris 2',
-        surname: 'Jonauskas',
-        price: 66.66,
-        description: 'Labai blogas treneris',
-        moto: 'Man patinka sportuoti!',
-    },
-]
-
-router.get('/api/trainers', (req, res) => {
-    res.json(trainers)
+router.get('/api/trainers', async (req, res) => {
+    try {
+        results = await dbOperations.getTrainers()
+        res.json(results).send()
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
-router.get('/api/trainers/:id', (req, res) => {
-    let trainerId = req.params.id
-    let trainer = trainers.filter(t => t.id == trainerId)
-    res.json(trainer)
+router.get('/api/trainers/:id', async (req, res) => {
+    const trainerId = req.params.id
+    try {
+        results = await dbOperations.getTrainerById(trainerId)
+        res.json(results).send()
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
 
