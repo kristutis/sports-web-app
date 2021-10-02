@@ -227,4 +227,6 @@ const dbOperations = {
     getRatingByUserAndTrainerIds, insertRating, updateRating
  }
 
+ //delete comment only user
+
 module.exports = dbOperations
