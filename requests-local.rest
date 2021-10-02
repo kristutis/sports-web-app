@@ -12,8 +12,8 @@ Content-Type: application/json
 {
     "name": "Jim",
     "surname": "jimmy",
-    "email": "jim-eaam.ru",
-    "password": "jimm"
+    "email": "ajim-eaam.ru",
+    "password": "ajimm"
 }
 
 ### login new user
@@ -108,8 +108,8 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "jim-eaam.ru",
-    "password": "jimm"
+    "email": "ajim-eaam.ru",
+    "password": "ajimm"
 }
 
 ###
@@ -140,12 +140,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiO
 ###
 POST http://localhost:3000/api/trainer/rating
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQxOTo0Nzo1OS4wMDBaIiwibW9uZXkiOjU3OC45NCwicm9sZSI6MSwiaWF0IjoxNjMzMjA5NDUzLCJleHAiOjE2MzMyMTAzNTN9.FfuyRjpfRoZaozxjKg2By-XJ7SkX0Yz0glRyFaOK3qY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTksIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImFqaW0tZWFhbS5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJGI5OWgwUzVwN2V2dnlydm9pa2xTSi5DZm1KblBFekZxNkU1N1lWNGdtTlJJWEo5NmdTUWFpIiwicmVnX2RhdGUiOiIyMDIxLTEwLTAyVDIyOjI5OjQ4LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMDJUMjI6Mjk6NDguMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzMyMTM3OTYsImV4cCI6MTYzMzIxNDY5Nn0.xU-KmejuWYjhJntrqCWa52VmwBCDQ0mWzNmAq7vlXTg
 
 {
-    "trainerId": "1",
-    "rating": "3.6"
+    "trainerId": "2",
+    "rating": "5"
 }
 
 ###
 GET http://localhost:3000/api/trainer/1/comments
+
+###
+GET http://localhost:3000/api/trainer/2/rating

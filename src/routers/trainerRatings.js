@@ -37,4 +37,18 @@ router.post('/api/trainer/rating', authenticateUser, async (req, res) => {
     }
 })
 
+router.get('/api/trainer/:tid/rating', async (req, res) => {
+    const trainerId = req.params.tid
+
+    try {
+        const result = await dbOperations.getRatingsByTrainerId(trainerId)
+        const ratings = result.map(r => r.rating)
+        const averageRating = ratings.reduce((a, b) => (a + b)) / ratings.length;
+        res.status(200).json(averageRating)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }    
+})
+
 module.exports = router;

@@ -205,6 +205,17 @@ function getRatingByUserAndTrainerIds(userId, trainerId) {
     })    
 }
 
+function getRatingsByTrainerId(trainerId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainer_ratings WHERE trainer_id = ?', [trainerId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 function insertRating(rating) {
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO trainer_ratings (fk_user_id , trainer_id , rating) VALUES (?, ?, ?)',
@@ -235,7 +246,7 @@ const dbOperations = {
     getOrdersByUserId, insertOrder,
     getTrainers, getTrainerById,
     insertComment, getCommentsByTrainerId,
-    getRatingByUserAndTrainerIds, insertRating, updateRating
+    getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating
  }
 
  //delete comment only user
