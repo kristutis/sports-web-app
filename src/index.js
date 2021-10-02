@@ -3,19 +3,17 @@ const express = require('express')
 
 const app = express()
 const PORT = process.env.PORT || 8000;
+app.use(express.json())
 
 const usersRouter = require('./routers/users')
-const postsRouter = require('./routers/posts')
 const trainersRouter = require('./routers/trainers')
-// const reservationsRouter = require('./routers/reservations')
 const productsRouter = require('./routers/products')
+const ordersRouter = require('./routers/orders')
 
-app.use(express.json())
 app.use(usersRouter)
-app.use(postsRouter)
 app.use(trainersRouter)
-// app.use(reservationsRouter)
 app.use(productsRouter)
+app.use(ordersRouter)
 
 app.get('/', (req, res) => {
     res.send('Welcome to sports-web API!')

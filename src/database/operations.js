@@ -45,6 +45,18 @@ function insertUser(user) {
     })    
 }
 
+function updateUser(user) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE users SET name=?, surname=?, email=?, password=?, money=?, role=? WHERE id = ?',
+        [user.name, user.surname, user.email, user.password, user.money, user.role, user.id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 function deleteUser(id) {
     return new Promise((resolve, reject) => {
         db.query('DELETE FROM users WHERE id = ?', [id], (err, results) => {
@@ -73,7 +85,7 @@ function getProductById(id) {
             if (err) {
                 return reject(err)
             }
-            return resolve(results)
+            return resolve(results[0])
         })
     })    
 }
@@ -113,9 +125,23 @@ function updateProduct(product) {
     })    
 }
 
+function insertOrder(order) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO orders (fk_user_id, fk_product_id, quantity, total_price) VALUES (?, ?, ?, ?)',
+        [order.userId, order.productId, order.quantity, order.totalPrice,], (err, results) => {
+            if (err) {
+                console.log('asd')
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 const dbOperations = { 
-    getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser,
-    getProducts, getProductById, insertProduct, deleteProduct, updateProduct
+    getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
+    getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
+    insertOrder
  }
 
 module.exports = dbOperations

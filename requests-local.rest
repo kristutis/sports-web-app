@@ -105,3 +105,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsIsnR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1l
   "price": 2.34,
   "quantity": 5
 }
+
+#-----------------------------------------
+###
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "jim-eaam.ru",
+    "password": "jimm"
+}
+
+###
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQxOToyNjo0MS4wMDBaIiwibW9uZXkiOjYwMCwicm9sZSI6MSwiaWF0IjoxNjMzMjAzNjEwLCJleHAiOjE2MzMyMDQ1MTB9.NY0TNZ9WRHLB2gl8i7KnlJ3iRcZaOjk9PUOnECGiOFw
+
+{
+    "productId": "1",
+    "quantity": "2"
+}
