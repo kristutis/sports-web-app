@@ -1,0 +1,6 @@
+ALTER TABLE users
+ADD UNIQUE (email);
+
+ALTER TABLE `users` CHANGE `password` `password` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+admin hash $2b$10$dN.67YJ0oMVqYtQ4lRzOXuCFyrFGn57DFGwyanZo8DFCeHb8Tma9C

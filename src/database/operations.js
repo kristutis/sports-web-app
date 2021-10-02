@@ -45,10 +45,6 @@ function insertUser(user) {
     })    
 }
 
-function updateUser() {
-
-}
-
 function deleteUser(id) {
     return new Promise((resolve, reject) => {
         db.query('DELETE FROM users WHERE id = ?', [id], (err, results) => {
