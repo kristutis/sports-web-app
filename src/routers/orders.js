@@ -5,13 +5,14 @@ const { authenticateUser } = require('../middleware/authentication');
 const router = new express.Router();
 
 router.get('/api/orders', authenticateUser, async (req, res) => {
-    // try {
-    //     results = await dbOperations.getProducts()
-    //     res.json(results).send()
-    // } catch (e) {
-    //     console.log(e)
-    //     res.sendStatus(500)
-    // }
+    const userId = req.user.id
+    try {
+        const results = await dbOperations.getOrdersByUserId(userId)
+        res.status(200).json(results).send()
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
 router.post('/api/orders', authenticateUser, async (req, res) => {
@@ -52,10 +53,6 @@ router.post('/api/orders', authenticateUser, async (req, res) => {
         console.log(e)
         res.sendStatus(500)
     }
-})
-
-router.post('/api/orders', authenticateUser, async (req, res) => {
-
 })
 
 module.exports = router;

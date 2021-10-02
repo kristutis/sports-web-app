@@ -125,6 +125,17 @@ function updateProduct(product) {
     })    
 }
 
+function getOrdersByUserId(userId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM orders WHERE fk_user_id = ?', [userId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 function insertOrder(order) {
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO orders (fk_user_id, fk_product_id, quantity, total_price) VALUES (?, ?, ?, ?)',
@@ -141,7 +152,7 @@ function insertOrder(order) {
 const dbOperations = { 
     getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
-    insertOrder
+    getOrdersByUserId, insertOrder
  }
 
 module.exports = dbOperations
