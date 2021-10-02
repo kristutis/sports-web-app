@@ -139,9 +139,8 @@ function getOrdersByUserId(userId) {
 function insertOrder(order) {
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO orders (fk_user_id, fk_product_id, quantity, total_price) VALUES (?, ?, ?, ?)',
-        [order.userId, order.productId, order.quantity, order.totalPrice,], (err, results) => {
+        [order.userId, order.productId, order.quantity, order.totalPrice], (err, results) => {
             if (err) {
-                console.log('asd')
                 return reject(err)
             }
             return resolve(results)
@@ -166,6 +165,54 @@ function getTrainerById(trainerId) {
             if (err) {
                 return reject(err)
             }
+            return resolve(results[0])
+        })
+    })    
+}
+
+function insertComment(comment) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO trainer_comments (fk_user_id , trainer_id , comment) VALUES (?, ?, ?)',
+        [comment.userId, comment.trainerId, comment.comment], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+function getRatingByUserAndTrainerIds(userId, trainerId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainer_ratings WHERE fk_user_id = ? AND trainer_id = ?',
+        [userId, trainerId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results[0])
+        })
+    })    
+}
+
+function insertRating(rating) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO trainer_ratings (fk_user_id , trainer_id , rating) VALUES (?, ?, ?)',
+        [rating.userId, rating.trainerId, rating.rating], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+function updateRating(rating) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE trainer_ratings SET rating=? WHERE fk_user_id = ? AND trainer_id = ?',
+        [rating.rating, rating.userId, rating.trainerId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
             return resolve(results)
         })
     })    
@@ -175,7 +222,9 @@ const dbOperations = {
     getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
     getOrdersByUserId, insertOrder,
-    getTrainers, getTrainerById
+    getTrainers, getTrainerById,
+    insertComment,
+    getRatingByUserAndTrainerIds, insertRating, updateRating
  }
 
 module.exports = dbOperations

@@ -11,15 +11,17 @@ create table trainer_ratings (
     fk_user_id int not null,
     trainer_id int not null,
     rating float not null,
-    CONSTRAINT pk_trainer_raiting PRIMARY KEY (fk_user_id,trainer_id)
+    date timestamp NOT NULL DEFAULT current_timestamp() on UPDATE CURRENT_TIMESTAMP(),
+    CONSTRAINT pk_trainer_comment PRIMARY KEY (fk_user_id,trainer_id)
 );
 
 
 create table trainer_comments ( 
+    id int PRIMARY KEY AUTO_INCREMENT,
     fk_user_id int not null,
     trainer_id int not null,
     comment text not null,
-    CONSTRAINT pk_trainer_comment PRIMARY KEY (fk_user_id,trainer_id)
+    date timestamp NOT NULL DEFAULT current_timestamp() on UPDATE CURRENT_TIMESTAMP()
 );
 
 
