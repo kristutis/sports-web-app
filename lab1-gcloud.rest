@@ -1,0 +1,105 @@
+### login new admin
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@admin.com",
+    "password": "admin"
+}
+
+#----------------------------------------- products
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/products
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/products/20
+
+###
+POST http://cosmic-quarter-326513.appspot.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+  "name": "cool_prod",
+  "description": "A can of beans",
+  "price": 2.55,
+  "quantity": 5
+}
+
+###
+DELETE http://cosmic-quarter-326513.appspot.com/api/products/20
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+###
+PUT http://cosmic-quarter-326513.appspot.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+  "id": "20",
+  "name": "not_c",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 5
+}
+
+#----------------------------------------- trainer comments
+###
+POST http://cosmic-quarter-326513.appspot.com/api/trainer/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+    "trainerId": "2",
+    "comment": "GOOD T"
+}
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/trainer/2/comments
+
+###
+PUT http://cosmic-quarter-326513.appspot.com/api/trainer/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+  "commentId": "11",
+  "comment": "BAD T"
+}
+
+###
+DELETE http://cosmic-quarter-326513.appspot.com/api/trainer/comments/11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+#----------------------------------------- trainer ratings
+###
+POST http://cosmic-quarter-326513.appspot.com/api/trainer/rating
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+    "trainerId": "2",
+    "rating": "1.22"
+}
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/trainer/ratings
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/trainer/1/ratings
+
+###
+PUT http://cosmic-quarter-326513.appspot.com/api/trainer/rating
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
+
+{
+    "trainerId": "1",
+    "rating": "3.4"
+}
+
+###
+DELETE http://cosmic-quarter-326513.appspot.com/api/trainer/rating/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNzAxOTEsImV4cCI6MTYzMzM3MTA5MX0.5xD2Oz6TCnRzMlTQetk-FFqPPrOJLaNodbIOC8dbClE
