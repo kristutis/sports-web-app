@@ -229,6 +229,17 @@ function getRatingByUserAndTrainerIds(userId, trainerId) {
     })    
 }
 
+function getRatings(trainerId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainer_ratings', (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
 function getRatingsByTrainerId(trainerId) {
     return new Promise((resolve, reject) => {
         db.query('SELECT * FROM trainer_ratings WHERE trainer_id = ?', [trainerId], (err, results) => {
@@ -241,6 +252,7 @@ function getRatingsByTrainerId(trainerId) {
 }
 
 function insertRating(rating) {
+    console.log(rating)
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO trainer_ratings (fk_user_id , trainer_id , rating) VALUES (?, ?, ?)',
         [rating.userId, rating.trainerId, rating.rating], (err, results) => {
@@ -264,15 +276,25 @@ function updateRating(rating) {
     })
 }
 
+function deleteRating(userId, trainerId) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM trainer_ratings WHERE fk_user_id = ? AND trainer_id = ?',
+        [userId, trainerId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
+
 const dbOperations = { 
     getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
     getOrdersByUserId, insertOrder,
     getTrainers, getTrainerById,
     insertComment, getCommentsByTrainerId, deleteComment, updateComment,
-    getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating
+    getRatings, getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating, deleteRating
  }
-
- //delete comment only user
 
 module.exports = dbOperations

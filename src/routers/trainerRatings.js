@@ -25,6 +25,7 @@ router.post('/api/trainer/rating', authenticateUser, async (req, res) => {
         }
 
         const ratingExist = await dbOperations.getRatingByUserAndTrainerIds(userId, trainerId)
+        console.log(ratingExist)
         if (ratingExist) {
             await dbOperations.updateRating(ratingObject)
         } else {
@@ -35,6 +36,18 @@ router.post('/api/trainer/rating', authenticateUser, async (req, res) => {
         console.log(e)
         res.sendStatus(500)
     }
+})
+
+router.get('/api/trainer/ratings', async (req, res) => {
+    const trainerId = req.params.tid
+
+    try {
+        const result = await dbOperations.getRatings()
+        res.status(200).json(result)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }    
 })
 
 router.get('/api/trainer/:tid/rating', async (req, res) => {
@@ -49,6 +62,61 @@ router.get('/api/trainer/:tid/rating', async (req, res) => {
         console.log(e)
         res.sendStatus(500)
     }    
+})
+
+router.get('/api/trainer/:tid/ratings', async (req, res) => {
+    const trainerId = req.params.tid
+
+    try {
+        const result = await dbOperations.getRatingsByTrainerId(trainerId)
+        res.status(200).json(result)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }    
+})
+
+router.put('/api/trainer/rating', authenticateUser, async (req, res) => {
+    const userId = req.user.id
+    const trainerId = req.body.trainerId
+    const rating = req.body.rating
+
+    const ratingObject = {
+        userId: userId,
+        trainerId: trainerId,
+        rating: rating
+    }
+
+    try {
+        const trainer = await dbOperations.getTrainerById(trainerId)
+        if (!trainer) {
+            return res.status(400).json({error: 'trainer does not exist'}).send()
+        }
+        if (!(parseFloat(rating) >= 0 && parseFloat(rating) <= 5)) {
+            return res.status(400).json({error: 'wrong rating format'}).send()
+        }
+
+        await dbOperations.updateRating(ratingObject)
+        res.sendStatus(200)   
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+})
+
+router.delete('/api/trainer/rating/:id', authenticateUser, async (req, res) => {
+    const userId = req.user.id
+    const trainerId = req.params.id
+
+    console.log(userId, trainerId)
+    
+    try {
+        await dbOperations.deleteRating(userId, trainerId)
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
 })
 
 module.exports = router;
