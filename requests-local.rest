@@ -1,33 +1,4 @@
-###
-GET http://localhost:3000/api/trainers/2
-
-###
-GET http://localhost:3000/api/trainers/
-
-#-----------------------------------------
-### sigup  new user
-POST http://localhost:3000/api/users/signup
-Content-Type: application/json
-
-{
-    "name": "Jim",
-    "surname": "jimmy",
-    "email": "aajim-eaam.ru",
-    "password": "aajimm"
-}
-
-### login new user
-POST http://localhost:3000/api/users/login
-Content-Type: application/json
-
-{
-    "email": "jim-eaam.ru",
-    "password": "jimm"
-}
-
-#-----------------------------------------
-
-### login admin
+### login new admin
 POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
@@ -36,107 +7,72 @@ Content-Type: application/json
     "password": "admin"
 }
 
-### admin get all users
-GET http://localhost:3000/api/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE5OjU3OjIyLjAwMFoiLCJtb25leSI6Mjk4LjE2LCJyb2xlIjoyNTUsImlhdCI6MTYzMzIxMjA2MywiZXhwIjoxNjMzMjEyOTYzfQ.ql6u-N2iIYKMq-ZjinCLuaR96dSKOQEBrf5KonEP2dk
-
-### admin get user
-GET http://localhost:3000/api/users/98
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk4OTYyLCJleHAiOjE2MzMxOTk4NjJ9.LYzhQP7okD4tWGvVr7RRVKyL6_iNVw_BGaJ4odQIeTQ
-
-### admin delete user
-DELETE http://localhost:3000/api/users/98
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk4OTYyLCJleHAiOjE2MzMxOTk4NjJ9.LYzhQP7okD4tWGvVr7RRVKyL6_iNVw_BGaJ4odQIeTQ
-
-#-----------------------------------------
-### 
-POST http://localhost:3000/api/users/refresh
-Content-Type: application/json
-
-{
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQyMTo1NzowNS4wMDBaIiwibW9uZXkiOjU3Ni42LCJyb2xlIjoxLCJpYXQiOjE2MzMyMTc4MTksImV4cCI6MTYzMzIyMTQxOX0.ZLJUHY_f2gII41GA0TRzAi93WFimu4DCXHYRWR9Qs2M"
-}
-
-### logout
-DELETE  http://localhost:3000/api/users/logout
-Content-Type: application/json
-
-{
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQyMTo1NzowNS4wMDBaIiwibW9uZXkiOjU3Ni42LCJyb2xlIjoxLCJpYXQiOjE2MzMyMTc4MTksImV4cCI6MTYzMzIyMTQxOX0.ZLJUHY_f2gII41GA0TRzAi93WFimu4DCXHYRWR9Qs2M"
-}
-
-#-----------------------------------------
+#----------------------------------------- products
 
 ###
 GET http://localhost:3000/api/products
 
 ###
-GET http://localhost:3000/api/products/15
+GET http://localhost:3000/api/products/2
 
 ###
 POST http://localhost:3000/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk4OTYyLCJleHAiOjE2MzMxOTk4NjJ9.LYzhQP7okD4tWGvVr7RRVKyL6_iNVw_BGaJ4odQIeTQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjIyNjAsImV4cCI6MTYzMzM2MzE2MH0.P3JA0G3BuUPJGvkGs7dLEBaZOn672Pv43DUNvkWa95I
 
 {
-  "name": "KKK",
+  "name": "new_p",
   "description": "A can of beans",
   "price": 2.34,
   "quantity": 5
 }
 
 ###
-DELETE http://localhost:3000/api/products/15
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluIiwic3VybmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRkTi42N1lKMG9NVnFZdFE0bFJ6T1h1Q0Z5ckZHbjU3REZHd3lhblpvOERGQ2VIYjhUbWE5QyIsInJlZ19kYXRlIjoiMjAyMS0wOS0yMFQxNzoxNjoxMC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTAyVDE3OjUyOjEzLjAwMFoiLCJtb25leSI6MzAwLjUsInJvbGUiOjI1NSwiaWF0IjoxNjMzMTk4OTYyLCJleHAiOjE2MzMxOTk4NjJ9.LYzhQP7okD4tWGvVr7RRVKyL6_iNVw_BGaJ4odQIeTQ
+DELETE http://localhost:3000/api/products/18
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjIyNjAsImV4cCI6MTYzMzM2MzE2MH0.P3JA0G3BuUPJGvkGs7dLEBaZOn672Pv43DUNvkWa95I
 
 ###
-POST http://localhost:3000/api/products
+PUT http://localhost:3000/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsIsnR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMyMzQzOTkzLCJleHAiOjE2MzIzNDQ4OTN9.tR2UBCimjZGVHTmWPmtLSwonwavtKAoRkT6s1hCkXAw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjIyNjAsImV4cCI6MTYzMzM2MzE2MH0.P3JA0G3BuUPJGvkGs7dLEBaZOn672Pv43DUNvkWa95I
 
 {
-  "id": "3",
-  "name": "NAME",
+  "id": "18",
+  "name": "NEW_pp",
   "description": "A can of beans",
   "price": 2.34,
   "quantity": 5
 }
 
-#-----------------------------------------
-###
-POST http://localhost:3000/api/users/login
-Content-Type: application/json
-
-{
-    "email": "ajim-eaam.ru",
-    "password": "ajimm"
-}
-
-###
-POST http://localhost:3000/api/orders
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQxOTo0Nzo1OS4wMDBaIiwibW9uZXkiOjU3OC45NCwicm9sZSI6MSwiaWF0IjoxNjMzMjExODE1LCJleHAiOjE2MzMyMTI3MTV9.aOkynQW0j7Z6eQ5tQ9hjuwvuNos7kFmgRUJ3r2Ck0Gs
-
-{
-    "productId": "1",
-    "quantity": "1"
-}
-
-###
-GET http://localhost:3000/api/orders
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQxOTo0Nzo1OS4wMDBaIiwibW9uZXkiOjU3OC45NCwicm9sZSI6MSwiaWF0IjoxNjMzMjExODE1LCJleHAiOjE2MzMyMTI3MTV9.aOkynQW0j7Z6eQ5tQ9hjuwvuNos7kFmgRUJ3r2Ck0Gs
-
+#----------------------------------------- trainer comments
 ###
 POST http://localhost:3000/api/trainer/comments
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTgsIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImppbS1lYWFtLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkdGN2QlpGZFVieW4yMnQwN2UwLjdJdVZvM2xhYWJYUmsxM1oyT0pyYXBwRkJsYkJhNmh2R20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDJUMTg6MjE6MzguMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wMlQxOTo0Nzo1OS4wMDBaIiwibW9uZXkiOjU3OC45NCwicm9sZSI6MSwiaWF0IjoxNjMzMjExODE1LCJleHAiOjE2MzMyMTI3MTV9.aOkynQW0j7Z6eQ5tQ9hjuwvuNos7kFmgRUJ3r2Ck0Gs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjQzMjUsImV4cCI6MTYzMzM2NTIyNX0.5Y9bH75_Fo8BHZQLlrc3LSoKsTVJtJ4t2w24a6H-nBs
 
 {
-    "trainerId": "2",
-    "comment": "Hello trainer"
+    "trainerId": "1",
+    "comment": "HeDner"
 }
 
+###
+GET http://localhost:3000/api/trainer/1/comments
+
+###
+PUT http://localhost:3000/api/trainer/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjM2NjMsImV4cCI6MTYzMzM2NDU2M30.wnNUw4JE_qgbJPeKEyHKsmZRGrfaYPOdgqnC_02smqI
+
+{
+  "commentId": "9",
+  "comment": "goodbyeee"
+}
+
+###
+DELETE http://localhost:3000/api/trainer/comments/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzMzNjQzMjUsImV4cCI6MTYzMzM2NTIyNX0.5Y9bH75_Fo8BHZQLlrc3LSoKsTVJtJ4t2w24a6H-nBs
+
+#----------------------------------------- trainer ratings
 ###
 POST http://localhost:3000/api/trainer/rating
 Content-Type: application/json
@@ -148,10 +84,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTksIm5hbWUiO
 }
 
 ###
-GET http://localhost:3000/api/trainer/1/comments
-
-###
 GET http://localhost:3000/api/trainer/2/rating
 
-DELETE http://localhost:3000/api/trainer/1/comments/5
-Authorization: Bearer eyJpZCI6OTksIm5hbWUiOiJKaW0iLCJzdXJuYW1lIjoiamltbXkiLCJlbWFpbCI6ImFqaW0tZWFhbS5ydSIsInBhc3N3b3JkIjoiJDJiJDEwJGI5OWgwUzVwN2V2dnlydm9pa2xTSi5DZm1KblBFekZxNkU1N1lWNGdtTlJJWEo5NmdTUWFpIiwicmVnX2RhdGUiOiIyMDIxLTEwLTAyVDIyOjI5OjQ4LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMDJUMjI6Mjk6NDguMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzMyMTM3OTYsImV4cCI6MTYzMzIxNDY5Nn0
+### PUT 
+
+### DELETE

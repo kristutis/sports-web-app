@@ -16,27 +16,6 @@ router.get('/api/trainer/:tid/comments', async (req, res) => {
     }    
 })
 
-// router.get('/api/products', async (req, res) => {
-//     try {
-//         results = await dbOperations.getProducts()
-//         res.json(results).send()
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })
-
-// router.get('/api/products/:id', async (req, res) => {
-//     const productId = req.params.id
-//     try {
-//         results = await dbOperations.getProductById(productId)
-//         res.json(results).send()
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })
-
 router.post('/api/trainer/comments', authenticateUser, async (req, res) => {
     const userId = req.user.id
     const trainerId = req.body.trainerId
@@ -62,32 +41,29 @@ router.post('/api/trainer/comments', authenticateUser, async (req, res) => {
     }
 })
 
-// router.put('/api/products', authenticateAdmin, async (req, res) => {
-//     const product = {
-//         id: req.body.id,
-//         name: req.body.name,
-//         description: req.body.description,
-//         price: req.body.price,
-//         quantity: req.body.quantity,
-//     }
-//     try {
-//         await dbOperations.updateProduct(product)
-//         res.sendStatus(200)
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })
+router.put('/api/trainer/comments', authenticateUser, async (req, res) => {
+    console.log(req.body)
+    const commentId = req.body.commentId
+    const comment = req.body.comment
+    
+    try {
+        await dbOperations.updateComment(comment, commentId)
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+})
 
-// router.delete('/api/products/:id', authenticateAdmin, async (req, res) => {
-//     const productId = req.params.id
-//     try {
-//         await dbOperations.deleteProduct(productId)
-//         res.sendStatus(200)
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })
+router.delete('/api/trainer/comments/:id', authenticateUser, async (req, res) => {
+    const commentId = req.params.id
+    try {
+        await dbOperations.deleteComment(commentId)
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+})
 
 module.exports = router;
