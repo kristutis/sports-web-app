@@ -1,5 +1,5 @@
 ### login new admin
-POST http://localhost:3000/api/users/login
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
 Content-Type: application/json
 
 {
@@ -10,13 +10,13 @@ Content-Type: application/json
 #----------------------------------------- products
 
 ###
-GET http://localhost:3000/api/products
+GET http://cosmic-quarter-326513.appspot.com/api/products
 
 ###
-GET http://localhost:3000/api/products/31
+GET http://cosmic-quarter-326513.appspot.com/api/products/31
 
 ###
-POST http://localhost:3000/api/products
+POST http://cosmic-quarter-326513.appspot.com/api/products
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -28,7 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-PUT http://localhost:3000/api/products/31
+PUT http://cosmic-quarter-326513.appspot.com/api/products/31
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -40,16 +40,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-DELETE http://localhost:3000/api/products/31
+DELETE http://cosmic-quarter-326513.appspot.com/api/products/31
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
 
 #----------------------------------------- trainer comments
 ###
-GET http://localhost:3000/api/trainers/1/comments
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/comments
 
 ###
-POST http://localhost:3000/api/trainers/1/comments
+POST http://cosmic-quarter-326513.appspot.com/api/trainers/1/comments
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -58,7 +58,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-PUT http://localhost:3000/api/trainers/comments/19
+PUT http://cosmic-quarter-326513.appspot.com/api/trainers/comments/19
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -67,21 +67,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-DELETE http://localhost:3000/api/trainers/comments/19
+DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/comments/19
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
 #----------------------------------------- trainer ratings
 ###
-GET http://localhost:3000/api/ratings
+GET http://cosmic-quarter-326513.appspot.com/api/ratings
 
 ###
-GET http://localhost:3000/api/trainers/1/ratings
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
 
 ###
-GET http://localhost:3000/api/trainers/1/ratings/average
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings/average
 
 ###
-POST http://localhost:3000/api/trainers/1/ratings
+POST http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -90,7 +90,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-PUT http://localhost:3000/api/trainers/1/ratings
+PUT http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
 
@@ -99,6 +99,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 }
 
 ###
-DELETE http://localhost:3000/api/trainers/1/ratings
+DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxMjozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDEyOjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM3Mjc4MjcsImV4cCI6MTYzMzczNTAyN30.GRgl2vNSNF7rJSpAJBys4GctfkxfIqwS3hvbBDx3Xdk
