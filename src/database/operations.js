@@ -181,6 +181,17 @@ function getCommentsByTrainerId(trainerId) {
     })    
 }
 
+function getCommentByCommentId(commentId) {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM trainer_comments WHERE id = ?', [commentId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results[0])
+        })
+    })    
+}
+
 function insertComment(comment) {
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO trainer_comments (fk_user_id , trainer_id , comment) VALUES (?, ?, ?)',
@@ -229,7 +240,7 @@ function getRatingByUserAndTrainerIds(userId, trainerId) {
     })    
 }
 
-function getRatings(trainerId) {
+function getRatings() {
     return new Promise((resolve, reject) => {
         db.query('SELECT * FROM trainer_ratings', (err, results) => {
             if (err) {
@@ -293,7 +304,7 @@ const dbOperations = {
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
     getOrdersByUserId, insertOrder,
     getTrainers, getTrainerById,
-    insertComment, getCommentsByTrainerId, deleteComment, updateComment,
+    getCommentByCommentId, insertComment, getCommentsByTrainerId, deleteComment, updateComment,
     getRatings, getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating, deleteRating
  }
 

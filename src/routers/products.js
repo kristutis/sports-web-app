@@ -1,6 +1,8 @@
 const express = require('express');
 const dbOperations = require('../database/operations');
 const { authenticateAdmin } = require('../middleware/authentication');
+const { validateId } = require('../middleware/common');
+const { validateProductBody } = require('../middleware/products');
 
 const router = new express.Router();
 
@@ -14,10 +16,14 @@ router.get('/api/products', async (req, res) => {
     }
 })
 
-router.get('/api/products/:id', async (req, res) => {
+router.get('/api/products/:id', validateId, async (req, res) => {
     const productId = req.params.id
+    
     try {
         results = await dbOperations.getProductById(productId)
+        if (!results) {
+            return res.sendStatus(404)
+        }
         res.json(results).send()
     } catch (e) {
         console.log(e)
@@ -25,31 +31,35 @@ router.get('/api/products/:id', async (req, res) => {
     }
 })
 
-router.post('/api/products', authenticateAdmin, async (req, res) => {
-    const product = {
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        quantity: req.body.quantity,
-    }
+router.post('/api/products', 
+    [
+        authenticateAdmin,
+        validateProductBody
+    ], async (req, res) => {
+    const product = req.product
     try {
         await dbOperations.insertProduct(product)
-        res.sendStatus(200)
+        res.sendStatus(201)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
     }
 })
 
-router.put('/api/products', authenticateAdmin, async (req, res) => {
-    const product = {
-        id: req.body.id,
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        quantity: req.body.quantity,
-    }
+router.put('/api/products/:id', 
+    [
+        authenticateAdmin,
+        validateId,
+        validateProductBody
+    ], async (req, res) => {
+    const productId = req.params.id
+    const product = req.product
+    product.id = productId
     try {
+        const productExist = await dbOperations.getProductById(productId)
+        if (!productExist) {
+            return res.status(400).send('product does not exist');
+        }
         await dbOperations.updateProduct(product)
         res.sendStatus(200)
     } catch (e) {
@@ -58,11 +68,19 @@ router.put('/api/products', authenticateAdmin, async (req, res) => {
     }
 })
 
-router.delete('/api/products/:id', authenticateAdmin, async (req, res) => {
+router.delete('/api/products/:id', 
+    [
+        authenticateAdmin,
+        validateId
+    ], async (req, res) => {
     const productId = req.params.id
     try {
+        const productExist = await dbOperations.getProductById(productId)
+        if (!productExist) {
+            return res.status(400).send('product does not exist');
+        }
         await dbOperations.deleteProduct(productId)
-        res.sendStatus(200)
+        res.sendStatus(204)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
