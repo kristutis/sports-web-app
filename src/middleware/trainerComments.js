@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const dbOperations = require('../database/operations');
 
 function validateTrainerComment(req, res, next) {
     const schema = Joi.string()
@@ -16,6 +17,21 @@ function validateTrainerComment(req, res, next) {
     next()
 }
 
+async function validateCommentExists(req, res, next) {
+    const commentId = req.params.id
+    try {
+        const commentExist = await dbOperations.getCommentByCommentId(commentId)
+        if (!commentExist) {
+            return res.status(400).send('comment does not exist')
+        }
+    } catch (e) {
+        console.log(e)
+        return res.sendStatus(500)
+    }
+    next()
+}
+
 module.exports = {
-    validateTrainerComment
+    validateTrainerComment,
+    validateCommentExists
 }

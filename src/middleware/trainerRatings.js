@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const dbOperations = require('../database/operations');
 
 function validateTrainerRating(req, res, next) {
     const schema = Joi.number()
@@ -16,6 +17,22 @@ function validateTrainerRating(req, res, next) {
     next()
 }
 
+async function validateRatingExists(req, res, next) {
+    const userId = req.user.id
+    const trainerId = req.params.id
+    try {
+        const rating = await dbOperations.getRatingByUserAndTrainerIds(userId, trainerId)
+        if (!rating) {
+            return res.status(400).send('rating does not exist')
+        }
+    } catch (e) {
+        console.log(e)
+        return res.sendStatus(500)
+    }
+    next()
+}
+
 module.exports = {
-    validateTrainerRating
+    validateTrainerRating,
+    validateRatingExists
 }

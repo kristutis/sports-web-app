@@ -2,7 +2,7 @@ const express = require('express');
 const dbOperations = require('../database/operations');
 const { authenticateAdmin } = require('../middleware/authentication');
 const { validateId } = require('../middleware/common');
-const { validateProductBody } = require('../middleware/products');
+const { validateProductBody, validateProductsExists } = require('../middleware/products');
 
 const router = new express.Router();
 
@@ -50,16 +50,13 @@ router.put('/api/products/:id',
     [
         authenticateAdmin,
         validateId,
-        validateProductBody
+        validateProductBody,
+        validateProductsExists
     ], async (req, res) => {
     const productId = req.params.id
     const product = req.product
     product.id = productId
     try {
-        const productExist = await dbOperations.getProductById(productId)
-        if (!productExist) {
-            return res.status(400).send('product does not exist');
-        }
         await dbOperations.updateProduct(product)
         res.sendStatus(200)
     } catch (e) {
@@ -71,14 +68,11 @@ router.put('/api/products/:id',
 router.delete('/api/products/:id', 
     [
         authenticateAdmin,
-        validateId
+        validateId,
+        validateProductsExists
     ], async (req, res) => {
     const productId = req.params.id
     try {
-        const productExist = await dbOperations.getProductById(productId)
-        if (!productExist) {
-            return res.status(400).send('product does not exist');
-        }
         await dbOperations.deleteProduct(productId)
         res.sendStatus(204)
     } catch (e) {

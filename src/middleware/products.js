@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const dbOperations = require('../database/operations');
 
 function validateProductBody(req, res, next) {
     const schema = Joi.object({
@@ -34,6 +35,21 @@ function validateProductBody(req, res, next) {
     next()
 }
 
+async function validateProductsExists(req, res, next) {
+    const productId = req.params.id
+    try {
+        const productExist = await dbOperations.getProductById(productId)
+        if (!productExist) {
+            return res.status(400).send('product does not exist');
+        }
+    } catch (e) {
+        console.log(e)
+        return res.sendStatus(500)
+    }
+    next()
+}
+
 module.exports = {
-    validateProductBody
+    validateProductBody,
+    validateProductsExists
 }
