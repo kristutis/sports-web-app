@@ -1,0 +1,35 @@
+
+#----------------------------------------- products
+###
+GET http://localhost:3000/api/products
+
+###
+GET http://localhost:3000/api/products/2
+
+###
+POST http://localhost:3000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0NDgxNzg1LCJleHAiOjE2MzQ0ODg5ODV9.17-CcrwUTtE73V82t6rXDwRB-IrDRq6innJXicnQn7s
+
+{
+  "name": "NEW NAME",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 55,
+}
+
+###
+PUT http://localhost:3000/api/products/32
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
+
+{
+  "name": "NEWER NAME",
+  "description": "Mr bean",
+  "price": 56.8,
+  "quantity": 5
+}
+
+###
+DELETE http://localhost:3000/api/products/33
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
