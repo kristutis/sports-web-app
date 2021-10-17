@@ -2,7 +2,7 @@ const db = require('./config/config')
 
 function getUserByUserId(id) {
     return new Promise((resolve, reject) => {
-        db.query(`SELECT * FROM users WHERE id = ?`, [id], (err, results) => {
+        db.query(`SELECT id, name, surname, email, reg_date, modify_date, money, role FROM users WHERE id = ?`, [id], (err, results) => {
             if (err) {
                 return reject(err)
             }
@@ -11,7 +11,7 @@ function getUserByUserId(id) {
     })
 }
 
-function getUserByUserEmail(userEmail) {
+function getUserByEmail(userEmail) {
     return new Promise((resolve, reject) => {
         db.query(`SELECT * FROM users WHERE email = ?`, [userEmail], (err, results) => {
             if (err) {
@@ -24,7 +24,7 @@ function getUserByUserEmail(userEmail) {
 
 function getUsers() {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM users', (err, results) => {
+        db.query('SELECT id, name, surname, email, reg_date, modify_date, money, role FROM users', (err, results) => {
             if (err) {
                 return reject(err)
             }
@@ -42,13 +42,25 @@ function insertUser(user) {
             }
             return resolve(results)
         })
-    })    
+    })
 }
 
 function updateUser(user) {
     return new Promise((resolve, reject) => {
-        db.query('UPDATE users SET name=?, surname=?, email=?, password=?, money=?, role=? WHERE id = ?',
-        [user.name, user.surname, user.email, user.password, user.money, user.role, user.id], (err, results) => {
+        db.query('UPDATE users SET name=?, surname=?, email=?, money=?, role=? WHERE id = ?',
+        [user.name, user.surname, user.email, user.money, user.role, user.id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+function updateUserPassword(passwordDetails) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE users SET password=? WHERE id = ?',
+        [passwordDetails.password, passwordDetails.id], (err, results) => {
             if (err) {
                 return reject(err)
             }
@@ -300,7 +312,7 @@ function deleteRating(userId, trainerId) {
 }
 
 const dbOperations = { 
-    getUsers, getUserByUserEmail, getUserByUserId, insertUser, deleteUser, updateUser,
+    getUsers, getUserByEmail, getUserByUserId, insertUser, deleteUser, updateUser, updateUserPassword,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
     getOrdersByUserId, insertOrder,
     getTrainers, getTrainerById,

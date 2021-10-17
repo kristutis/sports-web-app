@@ -20,10 +20,13 @@ function generateRefreshToken(user) {
 function authenticateRefreshToken(req, res, next) {
     try {
         const refreshToken = req.body.refreshToken
+        if (!refreshToken) {
+            return res.status(400).send('No token recieved')
+        }
 
         jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, user) => {
             if (err) {
-                return res.status(403).json({error: 'Refresh token no longer valid'})
+                return res.status(403).send('Refresh token no longer valid')
             }
             req.user = {
                 id: user.id,
@@ -37,15 +40,19 @@ function authenticateRefreshToken(req, res, next) {
             next()
         })
     } catch(e) {
-        return res.status(401).json({error: 'No token recieved\n' + e})
+        console.log(e)
+        return res.sendStatus(500)
     }
 }
 
 function authenticateUser(req, res, next) {
     try {
         const authHeader = req.headers['authorization']
+        if (!authHeader) {
+            return res.sendStatus(401)   
+        }
         const token = authHeader.replace('Bearer', '').trim();
-        if (token == null) {
+        if (!token) {
             return res.sendStatus(401)   
         }
 
@@ -62,15 +69,30 @@ function authenticateUser(req, res, next) {
 }
 
 function authenticateAdmin(req, res, next) {
-    authenticateUser.bind((req, res, next) => {
-        console.log('hello')
-        const user = req.user
-        if (ADMIN_ROLE === user.role) {
-            next()
-        } else {
-            return res.sendStatus(403)
+    try {
+        const authHeader = req.headers['authorization']
+        if (!authHeader) {
+            return res.sendStatus(401)   
         }
-    })
+        const token = authHeader.replace('Bearer', '').trim();
+        if (token == null) {
+            return res.sendStatus(401)   
+        }
+
+        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+            if (err) {
+                return res.sendStatus(403) //token no longer valid 
+            }
+            if (ADMIN_ROLE == user.role) {
+                req.user = user
+                next()
+            } else {
+                return res.sendStatus(403)
+            }
+        })
+    } catch {
+        return res.sendStatus(500)
+    }
 }
 
 module.exports = {

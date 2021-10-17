@@ -28,7 +28,6 @@ app.all('*', (req, res) => {
 })
 
 app.use((error, req, res, next) => {
-    console.log('hello')
     if (error) {
         if (error instanceof SyntaxError) {
             return res.status(400).send('Bad syntax')

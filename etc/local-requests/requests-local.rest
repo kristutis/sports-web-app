@@ -1,4 +1,4 @@
-#----------------------------------------- users
+#----------------------------------------- login users
 ### sigup  new user
 POST http://localhost:3000/api/users/signup
 Content-Type: application/json
@@ -6,7 +6,7 @@ Content-Type: application/json
 {
     "name": "Jim",
     "surname": "Jimmerson",
-    "email": "new-mail.ru",
+    "email": "neww-mail.ru",
     "password": "admin"
 }
 
@@ -15,8 +15,8 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "new-mail.ru",
-    "password": "admin"
+    "email": "my-email.com",
+    "password": "N"
 }
 
 ### login admin
@@ -28,36 +28,61 @@ Content-Type: application/json
     "password": "admin"
 }
 
-### update user
-### ~~~
+### refresh token
+POST http://localhost:3000/api/users/refresh
+Content-Type: application/json
 
-### admin or user GET user details
-### ~~~
-
-
-###
-DELETE http://localhost:3000/api/users/2
-Authorization: Bearer eyJhbGcasdiOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkppbSIsInN1cm5hbWUiOiJKaW1tZXJzb24iLCJlbWFpbCI6Im5ldy1tYWlsLnJ1IiwicGFzc3dvcmQiOiIkMmIkMTAkVjBIaGdoV1VHOVJlR1BGLlVwb21RT2FLYmxXazNlOXVPVjkwbHdWMXppYXdkVXlCY05veFciLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMTZUMTE6MjI6NDIuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0xNlQxMToyMjo0Mi4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjEsImlhdCI6MTYzNDM5NDU0NCwiZXhwIjoxNjM0NDAxNzQ0fQ.8Ujq1fHMxYajCyAmZlnhw9cITHeP3Ixqx19sorECYe8
-
-### admin get all users
-GET http://localhost:3000/api/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMzMzU3NTM3LCJleHAiOjE2MzMzNTg0Mzd9.0q71KS4LGyog5cQmautB9cUf5RdS-wJcv2L_3XnzsXA
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IiQyYiQxMCRWMEhoZ2hXVUc5UmVHUEYuVXBvbVFPYUtibFdrM2U5dU9WOTBsd1Yxemlhd2RVeUJjTm94VyIsImlhdCI6MTYzNDQ3Nzk1OSwiZXhwIjoxNjM0NDgxNTU5fQ.4kqb1lh6As0xZX_4CRPcVnkvNLp8fY6Q0Oj0ISuNxgk"
+}
 
 ### logout user
 DELETE  http://localhost:3000/api/users/logout
 Content-Type: application/json
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMzMzU3Nzc1LCJleHAiOjE2MzMzNjEzNzV9.yhr0XQoxiMWjPbAINUrMpNeffGWKGSyWN9RXPvkmZ_U"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsImlhdCI6MTYzNDQ3Nzk0NywiZXhwIjoxNjM0NDgxNTQ3fQ.i86_oETPhSWM5MJ-Sfr6Fl3EtjyCX9ZBYvz8-_zQyPw"
 }
 
-### refresh token
-POST http://localhost:3000/api/users/token
+#----------------------------------------- manage users
+
+### admin get all users
+GET http://localhost:3000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IkppbSIsInN1cm5hbWUiOiJKaW1tZXJzb24iLCJlbWFpbCI6Im5ldy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE2VDExOjIyOjQyLjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTZUMTE6MjI6NDIuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ0Nzg2MDUsImV4cCI6MTYzNDQ4NTgwNX0.olCQT7BgqwcjMyU2jXlA4a_-HMm-QN7YzHy1tBMA2j0
+
+### user or admin get user details
+GET http://localhost:3000/api/users/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJBbHZ5ZGFzIiwic3VybmFtZSI6IkRPUyIsImVtYWlsIjoibXktZW1haWwuY29tIiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEwOjMyOjQ0LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTE6MjA6MTUuMDAwWiIsIm1vbmV5Ijo3NzcsInJvbGUiOjYsImlhdCI6MTYzNDQ4MDQzMiwiZXhwIjoxNjM0NDg3NjMyfQ.wXJS1ApFBWysZXKEGFlkhrso2T9GvjKWoyUULU1uVU8
+
+### admin update user
+PUT http://localhost:3000/api/users/14
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0NDgwMjU3LCJleHAiOjE2MzQ0ODc0NTd9.iyAZ84hjo69ulSCbPGPSm_J7lpf1vzkuj8RZ8GXZpZI
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAwLCJuYW1lIjoiQURNSU4iLCJzdXJuYW1lIjoiQURNSU5fUyIsImVtYWlsIjoiYWRtaW4iLCJwYXNzd29yZCI6IiQyYiQxMCQ2SE9UczJaWk1IUDRUcUVlQnhJUzlPYTJyZTEwYkVJN0lWbTFqT3dzNm02Zy8xUkJZWnM3dSIsIm1vbmV5Ijo5OTkuOTksInJvbGUiOjI1NSwiaWF0IjoxNjMzMzU3Nzc1LCJleHAiOjE2MzMzNjEzNzV9.yhr0XQoxiMWjPbAINUrMpNeffGWKGSyWN9RXPvkmZ_U"
+  "name": "Alvydas",
+  "surname": "DOS",
+  "email": "mya-email.com",
+  "money": 777,
+  "role": 6
 }
+
+### user update user
+PUT http://localhost:3000/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJBbHZ5ZGFzIiwic3VybmFtZSI6IkRPUyIsImVtYWlsIjoibXlhLWVtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0xN1QxMDozMjo0NC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTE3VDExOjIxOjEwLjAwMFoiLCJtb25leSI6Nzc3LCJyb2xlIjo2LCJpYXQiOjE2MzQ0ODEzNDgsImV4cCI6MTYzNDQ4ODU0OH0.s4KFItxcGmlAcpd2IbQ5LrDb5IEOt406fEffn4Vd_PY
+
+{
+  "name": "AASAS",
+  "surname": "DOS",
+  "password": "N",
+  "email": "my-email.com"
+}
+
+
+### admin delete user
+DELETE http://localhost:3000/api/users/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJBbHZ5ZGFzIiwic3VybmFtZSI6IkRPUyIsImVtYWlsIjoibXlhLWVtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0xN1QxMDozMjo0NC4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTE3VDExOjIxOjEwLjAwMFoiLCJtb25leSI6Nzc3LCJyb2xlIjo2LCJpYXQiOjE2MzQ0ODEzNDgsImV4cCI6MTYzNDQ4ODU0OH0.s4KFItxcGmlAcpd2IbQ5LrDb5IEOt406fEffn4Vd_PY
 
 #----------------------------------------- products
 ###
