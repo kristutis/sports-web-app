@@ -22,7 +22,7 @@ async function validateCommentExists(req, res, next) {
     try {
         const commentExist = await dbOperations.getCommentByCommentId(commentId)
         if (!commentExist) {
-            return res.status(400).send('comment does not exist')
+            return res.status(404).send('comment does not exist')
         }
     } catch (e) {
         console.log(e)

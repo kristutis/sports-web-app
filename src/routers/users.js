@@ -2,20 +2,15 @@ const express = require('express');
 const { authenticateRefreshToken, authenticateAdmin, generateAccessToken, generateRefreshToken } = require('../middleware/authentication');
 const bcrypt = require('bcrypt')
 const dbOperations = require('../database/operations');
+const { validateUser } = require('../middleware/users');
 
 const router = new express.Router();
 const TOKEN_TYPE = 'Bearer'
 
 let refreshTokens = []
 
-router.post('/api/users/signup', async (req, res) => {
-    const userDetails = {
-        name: req.body.name,
-        surname: req.body.surname,
-        email: req.body.email,
-        password: req.body.password,
-    }
-
+router.post('/api/users/signup', validateUser, async (req, res) => {
+    const userDetails = req.userDetails
     try {
         const hashedPassword = await bcrypt.hash(userDetails.password, 10)
         const newUser = {
@@ -30,8 +25,10 @@ router.post('/api/users/signup', async (req, res) => {
             if (e.sqlMessage.includes('Duplicate entry')) {
                 return res.status(400).json({error: 'User already exists'})
             }
+            console.log(e)
+            return res.sendStatus(500)
         }
-        res.status(201).json('user ' + userDetails.name + ' created')
+        res.status(201).send('user ' + userDetails.name + ' created')
     } catch (e) {        
         console.log(e)
         res.sendStatus(500)
@@ -131,6 +128,7 @@ router.get('/api/users/:id', authenticateAdmin, async (req, res) => {
 
 router.delete('/api/users/:id', authenticateAdmin, async (req, res) => {
     userId = req.params.id
+    console.log(userId)
 
     try {
         const user = await dbOperations.getUserByUserId(userId)

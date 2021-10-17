@@ -40,7 +40,7 @@ async function validateProductsExists(req, res, next) {
     try {
         const productExist = await dbOperations.getProductById(productId)
         if (!productExist) {
-            return res.status(400).send('product does not exist');
+            return res.status(404).send('product does not exist');
         }
     } catch (e) {
         console.log(e)

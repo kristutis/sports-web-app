@@ -23,7 +23,7 @@ async function validateRatingExists(req, res, next) {
     try {
         const rating = await dbOperations.getRatingByUserAndTrainerIds(userId, trainerId)
         if (!rating) {
-            return res.status(400).send('rating does not exist')
+            return res.status(404).send('rating does not exist')
         }
     } catch (e) {
         console.log(e)

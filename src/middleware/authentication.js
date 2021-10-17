@@ -62,26 +62,15 @@ function authenticateUser(req, res, next) {
 }
 
 function authenticateAdmin(req, res, next) {
-    try {
-        const authHeader = req.headers['authorization']
-        const token = authHeader.replace('Bearer', '').trim();
-        if (token == null) {
-            return res.sendStatus(401)   
+    authenticateUser.bind((req, res, next) => {
+        console.log('hello')
+        const user = req.user
+        if (ADMIN_ROLE === user.role) {
+            next()
+        } else {
+            return res.sendStatus(403)
         }
-
-        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) {
-                return res.sendStatus(403) //token no longer valid 
-            }
-            const userRole = user.role
-            if (ADMIN_ROLE === userRole) {
-                req.user = user
-                next()
-            }
-        })
-    } catch {
-        return res.sendStatus(403)
-    }
+    })
 }
 
 module.exports = {

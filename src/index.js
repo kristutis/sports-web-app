@@ -23,6 +23,23 @@ app.get('/', (req, res) => {
     res.send('Welcome to sports-web API!')
 })
 
+app.all('*', (req, res) => {
+    res.sendStatus(404);
+})
+
+app.use((error, req, res, next) => {
+    console.log('hello')
+    if (error) {
+        if (error instanceof SyntaxError) {
+            return res.status(400).send('Bad syntax')
+        } else {
+            console.log(error)
+            return res.sendStatus(500)
+        }
+    }
+    next()
+})
+
 app.listen(PORT, () => {
     console.log('Server is running! Listening on PORT: ' + PORT);
 });
