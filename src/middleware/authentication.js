@@ -45,54 +45,54 @@ function authenticateRefreshToken(req, res, next) {
     }
 }
 
-function authenticateUser(req, res, next) {
+async function authenticateUser(req, res, next) {
     try {
-        const authHeader = req.headers['authorization']
-        if (!authHeader) {
-            return res.sendStatus(401)   
-        }
-        const token = authHeader.replace('Bearer', '').trim();
-        if (!token) {
-            return res.sendStatus(401)   
-        }
-
-        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) {
-                return res.sendStatus(403) //token no longer valid 
-            }
-            req.user = user
-            next()
-        })
-    } catch {
-        return res.sendStatus(403)
+        const user = await authenticateAccount(req)
+        req.user = user
+        next()
+    } catch (errorCode) {
+        return res.sendStatus(errorCode)  
     }
 }
 
-function authenticateAdmin(req, res, next) {
+async function authenticateAdmin(req, res, next) {
     try {
-        const authHeader = req.headers['authorization']
-        if (!authHeader) {
-            return res.sendStatus(401)   
+        const user = await authenticateAccount(req)
+        if (ADMIN_ROLE == user.role) {
+            req.user = user
+            next()
+        } else {
+            return res.sendStatus(403)
         }
-        const token = authHeader.replace('Bearer', '').trim();
-        if (token == null) {
-            return res.sendStatus(401)   
-        }
-
-        jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) {
-                return res.sendStatus(403) //token no longer valid 
-            }
-            if (ADMIN_ROLE == user.role) {
-                req.user = user
-                next()
-            } else {
-                return res.sendStatus(403)
-            }
-        })
-    } catch {
-        return res.sendStatus(500)
+    } catch (errorCode) {
+        return res.sendStatus(errorCode)  
     }
+}
+
+async function authenticateAccount(req) {
+    return new Promise((resolve, reject) => {
+        try {
+            const authHeader = req.headers['authorization']
+            if (!authHeader) {
+                return reject(401)
+            }
+            const token = authHeader.replace('Bearer', '').trim();
+            if (!token) {
+                return reject(401)
+            }
+    
+            jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+                if (err) {
+                    return reject(403) //token no longer valid 
+                }
+                resolve(user)
+            })
+        } catch (e) {
+            console.log(e)
+            return reject(500)
+        }
+    })
+
 }
 
 module.exports = {

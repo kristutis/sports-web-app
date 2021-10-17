@@ -30,7 +30,7 @@ function getUsers() {
             }
             return resolve(results)
         })
-    })    
+    })
 }
 
 function insertUser(user) {
