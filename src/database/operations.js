@@ -160,6 +160,17 @@ function deleteProduct(id) {
     })
 }
 
+function deleteOrder(orderId) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM orders WHERE order_id = ?', [orderId], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
+
 function updateProduct(product) {
     return new Promise((resolve, reject) => {
         db.query('UPDATE products SET name=?, description=?, price=?, quantity=? WHERE id = ?',
@@ -372,7 +383,7 @@ function deleteRating(userId, trainerId) {
 const dbOperations = { 
     getUsers, getUserByEmail, getUserByUserId, insertUser, deleteUser, updateUser, updateUserPassword,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
-    getOrdersByUserId, insertOrder, getOrderByOrderAndUserId, updateOrder,
+    getOrdersByUserId, insertOrder, getOrderByOrderAndUserId, updateOrder, deleteOrder,
     getTrainers, getTrainerById, insertTrainer, updateTrainer, deleteTrainer,
     getCommentByCommentId, insertComment, getCommentsByTrainerId, deleteComment, updateComment,
     getRatings, getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating, deleteRating

@@ -2,7 +2,7 @@ const express = require('express');
 const dbOperations = require('../database/operations');
 const { authenticateUser } = require('../middleware/authentication');
 const { validateId } = require('../middleware/common');
-const { validateQuantity, validateOrderBody, validateOrderedProductExists, validateOrderExists } = require('../middleware/orders');
+const { restoreProductToStoreAndUserMoney, validateOrderBody, validateOrderedProductExists, validateOrderExists } = require('../middleware/orders');
 
 const router = new express.Router();
 
@@ -56,46 +56,64 @@ router.post('/api/orders',
     }
 })
 
-// router.put('/api/orders/:id', 
-//     [
-//         validateId,
-//         authenticateUser,
-//         validateQuantity,
-//         validateOrderExists,
-//         validateOrderedProductExists
-//     ], async (req, res) => {
-//     const user = await dbOperations.getUserByUserId(req.user.id)
-//     const quantity = orderDetails.quantity 
-//     const product = req.product
-//     const orderId = req.order.id
+router.put('/api/orders/:id', 
+    [
+        validateId,
+        authenticateUser,
+        validateOrderBody,
+        validateOrderExists,
+        restoreProductToStoreAndUserMoney, 
+        validateOrderedProductExists,
+    ], async (req, res) => {
+    const user = await dbOperations.getUserByUserId(req.user.id)
+    const oldOrderId = req.order.order_id
+    const orderDetails = req.orderDetails
+    const product = req.product
+    const quantity = orderDetails.quantity
 
-    
-
-//     try {
-//         const totalPrice = quantity * product.price
-//         if (totalPrice > user.money) {
-//             return res.status(400).json({error: 'not enough money'})
-//         }
+    try {
+        const totalPrice = quantity * product.price
+        if (totalPrice > user.money) {
+            return res.status(400).json({error: 'not enough money'})
+        }
         
-//         const order = {
-//             orderId: orderId,
-//             productId: product.id,
-//             quantity: quantity,
-//             totalPrice: totalPrice,
-//         }
-//         await dbOperations.updateOrder(order)
+        //order.productId, order.quantity, order.totalPrice, order.orderId
+        const updatedOrder = {
+            productId: product.id,
+            quantity: quantity,
+            totalPrice: totalPrice,
+            orderId: oldOrderId
+        }
+        await dbOperations.updateOrder(updatedOrder)
 
-//         product.quantity -= quantity
-//         await dbOperations.updateProduct(product)
+        product.quantity -= quantity
+        await dbOperations.updateProduct(product)
 
-//         user.money -= totalPrice
-//         await dbOperations.updateUser(user)
+        user.money -= totalPrice
+        await dbOperations.updateUser(user)
 
-//         res.sendStatus(200)
-//     } catch (e) {
-//         console.log(e)
-//         res.sendStatus(500)
-//     }
-// })
+        res.sendStatus(200)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+})
+
+router.delete('/api/orders/:id', 
+    [
+        authenticateUser,
+        validateId,
+        validateOrderExists,
+        restoreProductToStoreAndUserMoney
+    ], async (req, res) => {
+    const orderId = req.params.id
+    try {
+        await dbOperations.deleteOrder(orderId)
+        res.sendStatus(204)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500)
+    }
+})
 
 module.exports = router;

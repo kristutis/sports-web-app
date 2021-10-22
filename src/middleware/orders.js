@@ -1,23 +1,6 @@
 const Joi = require('joi')
 const dbOperations = require('../database/operations');
 
-// function validateQuantity(req, res, next) {
-//     const schema = Joi.number()
-//         .integer()
-//         .min(1)
-//         .required()
-
-//     const quantity = req.body.quantity
-
-//     const { error } = schema.validate(quantity)
-//     if (error) {
-//         return res.status(400).send(error.details[0].message);
-//     }
-
-//     req.quantity = quantity
-//     next()
-// }
-
 function validateOrderBody(req, res, next) {
     const schema = Joi.object({
         productId: Joi.number()
@@ -78,9 +61,32 @@ async function validateOrderExists(req, res, next) {
     next()
 }
 
+async function restoreProductToStoreAndUserMoney(req, res, next) {
+    const orderId = req.params.id
+    const userId = req.user.id
+    try {
+        const order = await dbOperations.getOrderByOrderAndUserId(orderId, userId)
+        if (!order) {
+            return res.status(404).send('order does not exist');
+        }
+        
+        const product = await dbOperations.getProductById(order.fk_product_id)
+        product.quantity += order.quantity
+        await dbOperations.updateProduct(product)
+
+        const user = await dbOperations.getUserByUserId(userId)
+        user.money += order.total_price
+        await dbOperations.updateUser(user)
+    } catch (e) {
+        console.log(e)
+        return res.sendStatus(500)
+    }
+    next()
+}
+
 module.exports = {
     validateOrderBody,
     validateOrderedProductExists,
     validateOrderExists,
-    // validateQuantity
+    restoreProductToStoreAndUserMoney
 }

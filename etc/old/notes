@@ -1,3 +1,5 @@
+need to test products and orders
+
 node 
 require('crypto').randomBytes(64).toString('hex')
 
