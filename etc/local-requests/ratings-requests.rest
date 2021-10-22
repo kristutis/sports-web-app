@@ -1,0 +1,32 @@
+#----------------------------------------- trainer ratings
+###
+GET http://localhost:3000/api/ratings
+
+###
+GET http://localhost:3000/api/trainers/1/ratings
+
+###
+GET http://localhost:3000/api/trainers/1/ratings/average
+
+###
+POST http://localhost:3000/api/trainers/1/ratings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MDIyMDIsImV4cCI6MTYzNDkwOTQwMn0.0NHW1tOaeI1yc4KmKJFjMr8lHNhqLvrTUfMS5aMxQiM
+
+{
+    "rating": 2.56
+}
+
+###
+PUT http://localhost:3000/api/trainers/1/ratings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MDIyMDIsImV4cCI6MTYzNDkwOTQwMn0.0NHW1tOaeI1yc4KmKJFjMr8lHNhqLvrTUfMS5aMxQiM
+
+{
+    "rating": 1.123
+}
+
+###
+DELETE http://localhost:3000/api/trainers/1/ratings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MDIyMDIsImV4cCI6MTYzNDkwOTQwMn0.0NHW1tOaeI1yc4KmKJFjMr8lHNhqLvrTUfMS5aMxQiM

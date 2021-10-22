@@ -74,13 +74,12 @@ router.post('/api/trainers/:id/ratings',
 
     try {
         const ratingExist = await dbOperations.getRatingByUserAndTrainerIds(userId, trainerId)
-        console.log(ratingExist)
         if (ratingExist) {
-            await dbOperations.updateRating(ratingObject)
+            return res.status(400).send('Rating already exists')
         } else {
-            await dbOperations.insertRating(ratingObject) 
+            await dbOperations.insertRating(ratingObject)
+            return res.sendStatus(201)
         }
-        res.sendStatus(201)   
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
@@ -92,7 +91,8 @@ router.put('/api/trainers/:id/ratings',
         authenticateUser,
         validateId,
         validateTrainerRating,
-        validateTrainerExists
+        validateTrainerExists,
+        validateRatingExists
     ], async (req, res) => {
     const userId = req.user.id
     const trainerId = req.params.id
