@@ -1,0 +1,36 @@
+#----------------------------------------- trainers
+###
+GET http://localhost:3000/api/trainers/2/
+
+###
+GET http://localhost:3000/api/trainers/
+
+###
+POST http://localhost:3000/api/trainers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTA3MTg2LCJleHAiOjE2MzQ5MTQzODZ9.HkhXSKkSCa9UKwiotEIruo1oF3Fq_yeThHGkU0P-aeY
+
+{
+  "name": "NEW NAME",
+  "surname": "NEW SURN",
+  "price": 2.34,
+  "description": "A can of beans",  
+  "moto": "YAY"
+}
+
+###
+PUT http://localhost:3000/api/trainers/3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTA3MTg2LCJleHAiOjE2MzQ5MTQzODZ9.HkhXSKkSCa9UKwiotEIruo1oF3Fq_yeThHGkU0P-aeY
+
+{
+  "name": "BBBBB",
+  "surname": "NEW SURN",
+  "price": 2.34,
+  "description": "A can of beans",  
+  "moto": "YAY"
+}
+
+###
+DELETE  http://localhost:3000/api/trainers/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTA3MTg2LCJleHAiOjE2MzQ5MTQzODZ9.HkhXSKkSCa9UKwiotEIruo1oF3Fq_yeThHGkU0P-aeY

@@ -114,6 +114,41 @@ function insertProduct(product) {
     })
 }
 
+function insertTrainer(trainer) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO trainers (name, surname, price, description, moto) VALUES (?, ?, ?, ?, ?)',
+            [trainer.name, trainer.surname, trainer.price, trainer.description, trainer.moto], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
+
+function updateTrainer(trainer) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE trainers SET name=?, surname=?, price=?, description=?, moto=? WHERE id = ?',
+        [trainer.name, trainer.surname, trainer.price, trainer.description, trainer.moto, trainer.id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })    
+}
+
+function deleteTrainer(id) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM trainers WHERE id = ?', [id], (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
+
 function deleteProduct(id) {
     return new Promise((resolve, reject) => {
         db.query('DELETE FROM products WHERE id = ?', [id], (err, results) => {
@@ -275,7 +310,6 @@ function getRatingsByTrainerId(trainerId) {
 }
 
 function insertRating(rating) {
-    console.log(rating)
     return new Promise((resolve, reject) => {
         db.query('INSERT INTO trainer_ratings (fk_user_id , trainer_id , rating) VALUES (?, ?, ?)',
         [rating.userId, rating.trainerId, rating.rating], (err, results) => {
@@ -315,7 +349,7 @@ const dbOperations = {
     getUsers, getUserByEmail, getUserByUserId, insertUser, deleteUser, updateUser, updateUserPassword,
     getProducts, getProductById, insertProduct, deleteProduct, updateProduct,
     getOrdersByUserId, insertOrder,
-    getTrainers, getTrainerById,
+    getTrainers, getTrainerById, insertTrainer, updateTrainer, deleteTrainer,
     getCommentByCommentId, insertComment, getCommentsByTrainerId, deleteComment, updateComment,
     getRatings, getRatingByUserAndTrainerIds, getRatingsByTrainerId, insertRating, updateRating, deleteRating
  }

@@ -146,46 +146,46 @@
 # DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/comments/21
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
 
-#----------------------------------------- trainer ratings
-###
-GET http://cosmic-quarter-326513.appspot.com/api/ratings
+# #----------------------------------------- trainer ratings
+# ###
+# GET http://cosmic-quarter-326513.appspot.com/api/ratings
 
-###
-GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
+# ###
+# GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
 
-###
-GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings/average
+# ###
+# GET http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings/average
 
-###
-POST http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
+# ###
+# POST http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
 
-{
-    "rating": 2.69
-}
+# {
+#     "rating": 2.69
+# }
 
-###
-PUT http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
+# ###
+# PUT http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
 
-{
-    "rating": 3.55
-}
+# {
+#     "rating": 3.55
+# }
 
-###
-DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
+# ###
+# DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/1/ratings
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRyaHVPY0UuQkxGb2xsakFzSDJXcGRlY0FOUHJHR2xOb1hvdVMwemJoeXNWMXpZd2c0ZS5UYSIsInJlZ19kYXRlIjoiMjAyMS0xMC0wNFQxNTozOTozMS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTA0VDE1OjQwOjE1LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzM4MDQyMzcsImV4cCI6MTYzMzgwNTEzN30.dvFuxdvW7iGJOKqEoLmQh-UpxYv8VQkc77P_0LVM-MI
 
 #----------------------------------------- orders
 ### ~~~
 
-#----------------------------------------- trainers
-### ~~~
-###
-GET http://localhost:3000/api/trainers/2/
+# #----------------------------------------- trainers
+# ### ~~~
+# ###
+# GET http://localhost:3000/api/trainers/2/
 
-###
-GET http://localhost:3000/api/trainers/
+# ###
+# GET http://localhost:3000/api/trainers/
