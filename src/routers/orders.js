@@ -1,6 +1,8 @@
 const express = require('express');
 const dbOperations = require('../database/operations');
 const { authenticateUser } = require('../middleware/authentication');
+const { validateId } = require('../middleware/common');
+const { validateQuantity, validateOrderBody, validateOrderedProductExists, validateOrderExists } = require('../middleware/orders');
 
 const router = new express.Router();
 
@@ -15,20 +17,19 @@ router.get('/api/orders', authenticateUser, async (req, res) => {
     }
 })
 
-router.post('/api/orders', authenticateUser, async (req, res) => {
-    const productId = req.body.productId
-    const quantity = req.body.quantity
+router.post('/api/orders', 
+    [
+        authenticateUser,
+        validateOrderBody,
+        validateOrderedProductExists
+    ], async (req, res) => {
+    const user = await dbOperations.getUserByUserId(req.user.id)
+    const orderDetails = req.orderDetails
+    const product = req.product
+
+    const quantity = orderDetails.quantity 
 
     try {
-        const user = await dbOperations.getUserByUserId(req.user.id)
-        const product = await dbOperations.getProductById(productId)
-        if (!product) {
-            return res.status(400).json({error: 'product does not exist'})
-        }
-        if (product.quantity < quantity) {
-            return res.status(400).json({error: 'product quantity is less than ordered'})
-        }
-
         const totalPrice = quantity * product.price
         if (totalPrice > user.money) {
             return res.status(400).json({error: 'not enough money'})
@@ -36,7 +37,7 @@ router.post('/api/orders', authenticateUser, async (req, res) => {
         
         const order = {
             userId: user.id,
-            productId: productId,
+            productId: product.id,
             quantity: quantity,
             totalPrice: totalPrice,
         }
@@ -54,5 +55,47 @@ router.post('/api/orders', authenticateUser, async (req, res) => {
         res.sendStatus(500)
     }
 })
+
+// router.put('/api/orders/:id', 
+//     [
+//         validateId,
+//         authenticateUser,
+//         validateQuantity,
+//         validateOrderExists,
+//         validateOrderedProductExists
+//     ], async (req, res) => {
+//     const user = await dbOperations.getUserByUserId(req.user.id)
+//     const quantity = orderDetails.quantity 
+//     const product = req.product
+//     const orderId = req.order.id
+
+    
+
+//     try {
+//         const totalPrice = quantity * product.price
+//         if (totalPrice > user.money) {
+//             return res.status(400).json({error: 'not enough money'})
+//         }
+        
+//         const order = {
+//             orderId: orderId,
+//             productId: product.id,
+//             quantity: quantity,
+//             totalPrice: totalPrice,
+//         }
+//         await dbOperations.updateOrder(order)
+
+//         product.quantity -= quantity
+//         await dbOperations.updateProduct(product)
+
+//         user.money -= totalPrice
+//         await dbOperations.updateUser(user)
+
+//         res.sendStatus(200)
+//     } catch (e) {
+//         console.log(e)
+//         res.sendStatus(500)
+//     }
+// })
 
 module.exports = router;

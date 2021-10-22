@@ -156,7 +156,7 @@ router.delete('/api/users/:id',
     userId = req.params.id
     try {
         await dbOperations.deleteUser(userId)
-        res.sendStatus(200)
+        res.sendStatus(204)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
@@ -224,10 +224,15 @@ router.put('/api/users',
         role: currentUser.role
     }
     try {
-        dbOperations.updateUser(newUserDetails)
-    } catch (e) {  
-        console.log(e)
-        res.sendStatus(500)
+        await dbOperations.updateUser(newUserDetails)
+    } catch (e) {
+        if (e.sqlMessage && e.sqlMessage.con) {
+
+        }
+        if (e.sqlMessage && e.sqlMessage.includes('Duplicate entry')) {
+            return res.status(400).json({error: 'Email already exists'})
+        }
+        return res.sendStatus(500)
     }
 
     if (updatedUserDetails.password) {
@@ -240,10 +245,10 @@ router.put('/api/users',
             await dbOperations.updateUserPassword(passwordDetails)
         } catch (e) {
             if (e.sqlMessage && e.sqlMessage.includes('Duplicate entry')) {
-                return res.status(400).json({error: 'Email already exists'})
+                return res.status(400).json({error: 'Try another password'})
             }
             console.log(e)
-            res.sendStatus(500)
+            return res.sendStatus(500)
         }
     }
     res.sendStatus(200)

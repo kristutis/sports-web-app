@@ -3,10 +3,10 @@ POST http://localhost:3000/api/users/signup
 Content-Type: application/json
 
 {
-    "name": "Kyle",
-    "surname": "Jimmerson",
-    "email": "neww-mail.ru",
-    "password": "admin"
+    "name": "John",
+    "surname": "Smith",
+    "email": "john@gmail.com",
+    "password": "John"
 }
 
 ### login user
@@ -14,8 +14,8 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "neww-mail.ru",
-    "password": "admin"
+    "email": "john@gmail.com",
+    "password": "John"
 }
 
 ### login admin
@@ -32,7 +32,7 @@ POST http://localhost:3000/api/users/refresh
 Content-Type: application/json
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJtb25leSI6MCwicm9sZSI6MjU1LCJpYXQiOjE2MzQ0ODMzMjIsImV4cCI6MTYzNDQ4NjkyMn0.b9z6KvOe2PXjHsLan6rwFyBreQrogw1nmQbFRp636qw"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxMjo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDEyOjQ4OjU3LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MSwiaWF0IjoxNjM0OTE3ODMxLCJleHAiOjE2MzQ5MjE0MzF9.mBOgANJoG8UnKigjX2bxKg8tmcxTa2s5mbqUbqasETA"
 }
 
 ### logout user
@@ -40,28 +40,28 @@ DELETE  http://localhost:3000/api/users/logout
 Content-Type: application/json
 
 {
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwibW9uZXkiOjAsInJvbGUiOjEsImlhdCI6MTYzNDQ4MTgwOCwiZXhwIjoxNjM0NDg1NDA4fQ.X5hozz9U1cV2qOVFvRolBuAckVz5TMbvR-uVu8zdlBo"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MTc4MzQsImV4cCI6MTYzNDkyMTQzNH0.HDAsNX2GXffbv6zg_3pV4PH_CtXlb8e1rbphrNQR6Vk"
 }
 
 #----------------------------------------- manage users
 
 ### user get details
 GET http://localhost:3000/api/users/details
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MDA3OTgsImV4cCI6MTYzNDkwNzk5OH0.k339GgWDLTx1Hdi8gdKhqGlNNMNrkKFiFQGg3jQ68Tg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 
 ### admin get all users
 GET http://localhost:3000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0NDgzMzQ5LCJleHAiOjE2MzQ0OTA1NDl9.Vn5T12JF9EaALKdi1Xch8zIQZ6KHsR_6MaC0-w6Bwx0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
-### user or admin get user details
+### admin
 GET http://localhost:3000/api/users/19
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MDA3OTgsImV4cCI6MTYzNDkwNzk5OH0.k339GgWDLTx1Hdi8gdKhqGlNNMNrkKFiFQGg3jQ68Tg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 ### admin update user
-PUT http://localhost:3000/api/users/16
+PUT http://localhost:3000/api/users/19
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0NDgxNzg1LCJleHAiOjE2MzQ0ODg5ODV9.17-CcrwUTtE73V82t6rXDwRB-IrDRq6innJXicnQn7s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 {
   "name": "Alvydas",
@@ -74,15 +74,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6I
 ### user update user
 PUT http://localhost:3000/api/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsIm5hbWUiOiJBbHZ5ZGFzIiwic3VybmFtZSI6IkFMIiwiZW1haWwiOiJteWFhLWVtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0xN1QxMTo0MjowNS4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTE3VDExOjU0OjU4LjAwMFoiLCJtb25leSI6Nzc3LCJyb2xlIjo2LCJpYXQiOjE2MzQ0ODI1MjEsImV4cCI6MTYzNDQ4OTcyMX0.X4jPpCiLu3Ng1Ylc_YUV4Aurv1GkpkJzSgEDlj9LDZQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 {
-  "name": "AWADASD",
-  "surname": "ASD",
-  "email": "myaa-email.com"
+  "name": "John",
+  "surname": "Smith",
+  "email": "john@gmail.com"
 }
 
 
 ### admin delete user
-DELETE http://localhost:3000/api/users/18
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0wNFQxMjo0MDoxNS4wMDBaIiwibW9uZXkiOjAsInJvbGUiOjI1NSwiaWF0IjoxNjM0NDgzNTMwLCJleHAiOjE2MzQ0OTA3MzB9.dwCRY35r6b3l1jxtit5jo68KE2u4dNLvR5EUnRIfEnc
+DELETE http://localhost:3000/api/users/19
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
