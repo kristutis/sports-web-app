@@ -15,7 +15,6 @@ router.get('/api/trainers', async (req, res) => {
 
 router.get('/api/trainers/:id', async (req, res) => {
     const trainerId = req.params.id
-    console.log('there')
     try {
         results = await dbOperations.getTrainerById(trainerId)
         res.json(results).send()

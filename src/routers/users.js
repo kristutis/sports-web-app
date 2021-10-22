@@ -112,25 +112,38 @@ router.get('/api/users', authenticateAdmin, async (req, res) => {
     }
 })
 
+router.get('/api/users/details', 
+    [
+        authenticateUser
+    ], async (req, res) => {
+    userId = req.user.id
+    try {
+        const user = await dbOperations.getUserByUserId(userId)
+        if (!user) {
+            return res.status(404).send('User does not exist')
+        }
+        return res.status(200).json(user).send()
+    } catch (e) {
+        console.log(e)
+        return  res.sendStatus(500)
+    }
+})
+
 router.get('/api/users/:id', 
     [
         validateId,
-        authenticateUser
+        authenticateAdmin
     ], async (req, res) => {
     userId = req.params.id
-    if (req.user.id == userId || ADMIN_ROLE == req.user.role) {
-        try {
-            const user = await dbOperations.getUserByUserId(userId)
-            if (!user) {
-                return res.status(404).send('User does not exist')
-            }
-            return res.status(200).json(user).send()
-        } catch (e) {
-            console.log(e)
-            return  res.sendStatus(500)
+    try {
+        const user = await dbOperations.getUserByUserId(userId)
+        if (!user) {
+            return res.status(404).send('User does not exist')
         }
-    } else {
-        return res.sendStatus(403)
+        return res.status(200).json(user).send()
+    } catch (e) {
+        console.log(e)
+        return  res.sendStatus(500)
     }
 })
 

@@ -20,10 +20,11 @@ function validateTrainerComment(req, res, next) {
 async function validateCommentExists(req, res, next) {
     const commentId = req.params.id
     try {
-        const commentExist = await dbOperations.getCommentByCommentId(commentId)
-        if (!commentExist) {
+        const comment = await dbOperations.getCommentByCommentId(commentId)
+        if (!comment) {
             return res.status(404).send('comment does not exist')
         }
+        req.commentObject = comment
     } catch (e) {
         console.log(e)
         return res.sendStatus(500)
