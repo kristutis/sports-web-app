@@ -75,7 +75,9 @@ router.post('/api/trainers/:id/ratings',
     try {
         const ratingExist = await dbOperations.getRatingByUserAndTrainerIds(userId, trainerId)
         if (ratingExist) {
-            return res.status(400).send('Rating already exists')
+            // return res.status(400).send('Rating already exists')
+            await dbOperations.updateRating(ratingObject)
+            res.status(200)  
         } else {
             await dbOperations.insertRating(ratingObject)
             return res.sendStatus(201)
@@ -106,7 +108,7 @@ router.put('/api/trainers/:id/ratings',
 
     try {
         await dbOperations.updateRating(ratingObject)
-        res.sendStatus(200)   
+        res.status(200)   
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
