@@ -1,0 +1,35 @@
+
+#----------------------------------------- products
+###
+GET http://cosmic-quarter-326513.appspot.com/api/products
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/products/2
+
+###
+POST http://cosmic-quarter-326513.appspot.com/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ4OTkwMzcsImV4cCI6MTYzNDkwNjIzN30.vJjl3y5hKDCDv6at3__pyig14PDXCkz-NlsxzSk0UNE
+
+{
+  "name": "NEW NAME",
+  "description": "A can of beans",
+  "price": 2.34,
+  "quantity": 55
+}
+
+###
+PUT http://cosmic-quarter-326513.appspot.com/api/products/32
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ4OTkwMzcsImV4cCI6MTYzNDkwNjIzN30.vJjl3y5hKDCDv6at3__pyig14PDXCkz-NlsxzSk0UNE
+
+{
+  "name": "NEWER NAME",
+  "description": "Mr bean",
+  "price": 56.8,
+  "quantity": 5
+}
+
+###
+DELETE http://cosmic-quarter-326513.appspot.com/api/products/33
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksIm5hbWUiOiJLeWxlIiwic3VybmFtZSI6IkppbW1lcnNvbiIsImVtYWlsIjoibmV3dy1tYWlsLnJ1IiwicmVnX2RhdGUiOiIyMDIxLTEwLTE3VDEyOjE0OjU5LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMTdUMTI6MTQ6NTkuMDAwWiIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ4OTkwMzcsImV4cCI6MTYzNDkwNjIzN30.vJjl3y5hKDCDv6at3__pyig14PDXCkz-NlsxzSk0UNE

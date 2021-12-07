@@ -13,7 +13,7 @@ router.get('/api/trainers', async (req, res) => {
         res.json(results).send()
     } catch (e) {
         console.log(e)
-        res.sendStatus(500)
+        // res.sendStatus(500)
     }
 })
 
@@ -24,7 +24,7 @@ router.get('/api/trainers/:id', async (req, res) => {
         res.json(results).send()
     } catch (e) {
         console.log(e)
-        res.sendStatus(500)
+        // res.sendStatus(500)
     }
 })
 

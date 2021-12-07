@@ -1,0 +1,36 @@
+#----------------------------------------- trainers
+###
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/2/
+
+###
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/
+
+###
+POST http://cosmic-quarter-326513.appspot.com/api/trainers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTU6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMzo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM2Mzg3NTA1LCJleHAiOjE2MzYzODg0MDV9.T56EuQrQyYAzPE-KnGbZReyJbqI7f3PBA3hPrLNy63s
+
+{
+  "name": "new trainer name",
+  "surname": "new trainer surname",
+  "price": 2.34,
+  "description": "A can of beans",  
+  "moto": "YAY"
+}
+
+###
+PUT http://cosmic-quarter-326513.appspot.com/api/trainers/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxNTo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTExLTA4VDE1OjI3OjU5LjAwMFoiLCJtb25leSI6OTcxLjQ1LCJyb2xlIjoxLCJpYXQiOjE2MzYzODU1NjQsImV4cCI6MTYzNjM4NjQ2NH0.0UU7X-xoi48qPkmCWRzQzAGuJyixBrHjB1MECJegK7Y
+
+{
+  "name": "BBBBB",
+  "surname": "NEW SURN",
+  "price": 2.34,
+  "description": "A can of beans",  
+  "moto": "YAY"
+}
+
+###
+DELETE  http://cosmic-quarter-326513.appspot.com/api/trainers/5
+Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTU6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMzo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM2Mzg3NTA1LCJleHAiOjE2MzYzODg0MDV9.T56EuQrQyYAzPE-KnGbZReyJbqI7f3PBA3hPrLNy63s

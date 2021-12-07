@@ -1,36 +1,32 @@
-#----------------------------------------- trainers
+#----------------------------------------- trainer ratings
 ###
-GET http://localhost:3000/api/trainers/2/
+GET http://cosmic-quarter-326513.appspot.com/api/ratings
 
 ###
-GET http://localhost:3000
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/5/ratings
 
 ###
-POST http://localhost:3000/api/trainers
+GET http://cosmic-quarter-326513.appspot.com/api/trainers/5/ratings/average
+
+###
+POST http://cosmic-quarter-326513.appspot.com/api/trainers/5/ratings
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 {
-  "name": "new trainer name",
-  "surname": "new trainer surname",
-  "price": 2.34,
-  "description": "A can of beans",  
-  "moto": "YAY"
+    "rating": 2.56
 }
 
 ###
-PUT http://localhost:3000/api/trainers/4
+PUT http://cosmic-quarter-326513.appspot.com/api/trainers/5/ratings
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88
 
 {
-  "name": "BBBBB",
-  "surname": "NEW SURN",
-  "price": 2.34,
-  "description": "A can of beans",  
-  "moto": "YAY"
+    "rating": 1.123
 }
 
 ###
-DELETE  http://localhost:3000/api/trainers/6
+DELETE http://cosmic-quarter-326513.appspot.com/api/trainers/5/ratings
+Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTI6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMDo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM0OTE4MjI1LCJleHAiOjE2MzQ5MjU0MjV9.afs4eEW4_XOHh5e0gw4C_HkAREPeh4VkcBesiiAjZ88

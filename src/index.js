@@ -1,9 +1,13 @@
+//error handling middleware
+const cors = require('cors');
 require('dotenv').config();
 const express = require('express')
 
 const app = express()
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
+app.use(cors());
+app.options('*', cors());
 
 const usersRouter = require('./routers/users')
 const trainersRouter = require('./routers/trainers')
@@ -20,6 +24,7 @@ app.use(trainerCommentsRouter)
 app.use(trainerRatingsRouter)
 
 app.get('/', (req, res) => {
+    console.log("ASDASD")
     res.send('Welcome to sports-web API!')
 })
 

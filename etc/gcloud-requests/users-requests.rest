@@ -1,0 +1,91 @@
+### sigup  new user
+POST http://cosmic-quarter-326513.appspot.com/api/users/signup
+Content-Type: application/json
+
+{
+    "name": "Kyle",
+    "surname": "Smith",
+    "email": "kyle@gmail.com",
+    "password": "John"
+}
+
+### login user
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
+Content-Type: application/json
+
+{
+    "email": "kyle@gmail.com",
+    "password": "John"
+}
+
+### login admin
+POST http://cosmic-quarter-326513.appspot.com/api/users/login
+Content-Type: application/json
+
+{
+    "email": "admin@admin.com",
+    "password": "admin"
+}
+
+### refresh token
+POST http://cosmic-quarter-326513.appspot.com/api/users/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxNTo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDE3OjUyOjU3LjAwMFoiLCJtb25leSI6OTg4LjA5LCJyb2xlIjoxLCJpYXQiOjE2MzYzODQyNTUsImV4cCI6MTYzNjM4Nzg1NX0.sGdA2QgPEV25lxz7CLRF3RXjawo4OF7zKfH70JrNhgg"
+}
+
+### logout user
+DELETE  http://cosmic-quarter-326513.appspot.com/api/users/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vbmV5IjowLCJyb2xlIjoxLCJpYXQiOjE2MzQ5MTc4MzQsImV4cCI6MTYzNDkyMTQzNH0.HDAsNX2GXffbv6zg_3pV4PH_CtXlb8e1rbphrNQR6Vk"
+}
+
+#----------------------------------------- manage users
+
+### user get details
+GET http://cosmic-quarter-326513.appspot.com/api/users/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJyZWdfZGF0ZSI6IjIwMjEtMTAtMDRUMTU6Mzk6MzEuMDAwWiIsIm1vZGlmeV9kYXRlIjoiMjAyMS0xMC0yMlQxMzo0MDowOS4wMDBaIiwibW9uZXkiOjEwMDAsInJvbGUiOjI1NSwiaWF0IjoxNjM2Mzg0Mzc3LCJleHAiOjE2MzYzODUyNzd9.N8uw246fwrVBwbzxWT3dlmWX9ENaRUaba9vKyQDbpXs
+
+
+### admin get all users
+GET http://cosmic-quarter-326513.appspot.com/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxMjo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDEyOjU2OjM3LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MSwiaWF0IjoxNjM0OTE5NTAwLCJleHAiOjE2MzQ5MjY3MDB9.Iq6qxg2WV8d5XzkKxQ4qZsavYL3IXm6r-CY31oHkMKM
+
+### admin
+GET http://cosmic-quarter-326513.appspot.com/api/users/19
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxMjo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDEyOjU2OjM3LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MSwiaWF0IjoxNjM0OTE5NTAwLCJleHAiOjE2MzQ5MjY3MDB9.Iq6qxg2WV8d5XzkKxQ4qZsavYL3IXm6r-CY31oHkMKM
+
+### admin update user
+PUT http://cosmic-quarter-326513.appspot.com/api/users/19
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxMjo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDEyOjU2OjM3LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MSwiaWF0IjoxNjM0OTE5NTAwLCJleHAiOjE2MzQ5MjY3MDB9.Iq6qxg2WV8d5XzkKxQ4qZsavYL3IXm6r-CY31oHkMKM
+
+{
+  "name": "Alvydas",
+  "surname": "AL",
+  "email": "myaa-email.com",
+  "money": 777,
+  "role": 6
+}
+
+### user update user
+PUT http://cosmic-quarter-326513.appspot.com/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJlZ19kYXRlIjoiMjAyMS0xMC0yMlQxMjo0ODo1Ny4wMDBaIiwibW9kaWZ5X2RhdGUiOiIyMDIxLTEwLTIyVDEyOjU2OjM3LjAwMFoiLCJtb25leSI6MCwicm9sZSI6MSwiaWF0IjoxNjM0OTE5NTAwLCJleHAiOjE2MzQ5MjY3MDB9.Iq6qxg2WV8d5XzkKxQ4qZsavYL3IXm6r-CY31oHkMKM
+
+{
+  "name": "John",
+  "surname": "Smith",
+  "email": "john@gmail.com"
+}
+
+
+### admin delete user
+DELETE http://cosmic-quarter-326513.appspot.com/api/users/19
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJKb2huIiwic3VybmFtZSI6IlNtaXRoIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHVLYVV1WTVnY1Z0d0VTdmE2SVM5MnVtR25YQXQ1RUtmNWkvUlBWb1RiTlg5ZGJIT1dCd3FHIiwicmVnX2RhdGUiOiIyMDIxLTEwLTIyVDE1OjQ4OjU3LjAwMFoiLCJtb2RpZnlfZGF0ZSI6IjIwMjEtMTAtMjJUMTc6NTI6NTcuMDAwWiIsIm1vbmV5Ijo5ODguMDksInJvbGUiOjEsImlhdCI6MTYzNjMxODQ4NiwiZXhwIjoxNjM2MzE5Mzg2fQ._dsJOEKfgAbixtCeZGdPe90ZEpV2MRJ6mHOosQK1rcQ
+
+###
+GET http://cosmic-quarter-326513.appspot.com/aasdasd/asdasd
