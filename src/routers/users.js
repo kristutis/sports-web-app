@@ -105,7 +105,7 @@ router.post('/api/users/refresh', authenticateRefreshToken, (req, res) => {
 router.get('/api/users', authenticateAdmin, async (req, res) => {
     try {
         results = await dbOperations.getUsers()
-        res.json(results).send()
+        res.json(results)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
@@ -122,7 +122,7 @@ router.get('/api/users/details',
         if (!user) {
             return res.status(404).send('User does not exist')
         }
-        return res.status(200).json(user).send()
+        return res.status(200).json(user)
     } catch (e) {
         console.log(e)
         return  res.sendStatus(500)
@@ -140,7 +140,7 @@ router.get('/api/users/:id',
         if (!user) {
             return res.status(404).send('User does not exist')
         }
-        return res.status(200).json(user).send()
+        return res.status(200).json(user)
     } catch (e) {
         console.log(e)
         return  res.sendStatus(500)

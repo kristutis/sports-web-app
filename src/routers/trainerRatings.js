@@ -26,7 +26,7 @@ router.get('/api/trainers/:id/ratings',
 
     try {
         const result = await dbOperations.getRatingsByTrainerId(trainerId)
-        res.status(200).json(result).send()
+        res.status(200).json(result)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)

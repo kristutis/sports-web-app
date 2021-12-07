@@ -9,7 +9,7 @@ const router = new express.Router();
 router.get('/api/products', async (req, res) => {
     try {
         results = await dbOperations.getProducts()
-        res.json(results).send()
+        res.json(results)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
@@ -24,7 +24,7 @@ router.get('/api/products/:id', validateId, async (req, res) => {
         if (!results) {
             return res.sendStatus(404)
         }
-        res.json(results).send()
+        res.json(results)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)

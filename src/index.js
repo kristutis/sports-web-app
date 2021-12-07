@@ -24,7 +24,6 @@ app.use(trainerCommentsRouter)
 app.use(trainerRatingsRouter)
 
 app.get('/', (req, res) => {
-    console.log("ASDASD")
     res.send('Welcome to sports-web API!')
 })
 
@@ -38,7 +37,7 @@ app.use((error, req, res, next) => {
             return res.status(400).send('Bad syntax')
         } else {
             console.log(error)
-            return res.sendStatus(500)
+            // return res.sendStatus(500)
         }
     }
     next()

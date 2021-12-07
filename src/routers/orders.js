@@ -10,7 +10,7 @@ router.get('/api/orders', authenticateUser, async (req, res) => {
     const userId = req.user.id
     try {
         const results = await dbOperations.getOrdersByUserId(userId)
-        res.status(200).json(results).send()
+        res.status(200).json(results)
     } catch (e) {
         console.log(e)
         res.sendStatus(500)
