@@ -6,8 +6,22 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
-app.use(cors());
-app.options('*', cors());
+
+// app.options({
+//     "origin": "*",
+//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+// }, cors())
+// app.use(cors());
+// app.options('*', cors());
+
+const corsOptions = {
+   origin:'*', 
+   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions))
 
 const usersRouter = require('./routers/users')
 const trainersRouter = require('./routers/trainers')
